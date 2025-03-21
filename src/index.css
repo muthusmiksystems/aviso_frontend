@@ -72,6 +72,7 @@ button:focus-visible {
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
   font-family: 'OmnesArabic';
   src: url('./assets/fonts/OmnesArabic-Black.otf') format('opentype');

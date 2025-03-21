@@ -5,7 +5,7 @@ import Images from "../../../assets/images/Image"; // Correct import
 
 function Navbar() {
   return (
-    <nav className="flex justify-between items-center p-4  w-full bg-gray-100 font-omnesarabic font-bold">
+    <nav className="flex justify-between items-center p-4  w-full bg-gradient-to-r from-[#fffff] via-[#F7F8FE] to-[#F0F0FC]  font-omnesarabic font-bold">
       {/* Left Section - Logo */}
       <div className="flex justify-between mx-auto items-center w-[80%]">
         <div className="flex items-center space-x-2">
