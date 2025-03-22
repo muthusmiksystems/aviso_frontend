@@ -21,9 +21,9 @@ import vector5 from './Vector5.png'
 import vector6 from './Vector6.png'
 import vector7 from './Vector7.png'
 import vector8 from './Vector8.png'
-import Calling from "./callingicon.png"; // Import the image directly
-import Message from "./messageicon.png"; // Import the image directly
-import Backgroundpsuedo from "./backgroundpsuedo.png"; // Import the image directly
+import Calling from "./callingicon.png"; 
+import Message from "./messageicon.png"; 
+import Backgroundpsuedo from "./backgroundpsuedo.png"; 
 import BusinessPeople from "./businesspeople.png";
 import Professionalone from "./professional-1.png";
 import Professionaltwo from "./professional-2.png";
@@ -42,6 +42,10 @@ import Founder1 from './founder(1).png';
 import Founder2 from './founder(2).png';
 import FounderBack from './founder-background.png';
 import AuthBackground from './AuthBackground.png';
+import Steper1 from './steper1.png';
+import Steper2 from './steper2.png';
+import Steper3 from './steper3.png';
+
 const Images = {
   Logo,
   Img_Ellipse,
@@ -86,6 +90,9 @@ const Images = {
   Founder2,
   FounderBack,
   AuthBackground,
+  Steper1: Steper1,
+  Steper2: Steper2,
+  Steper3: Steper3,
 };
 
 export default Images;
