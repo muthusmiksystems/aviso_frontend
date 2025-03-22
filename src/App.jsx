@@ -6,14 +6,15 @@ const Home = React.lazy(() => import('./pages/home'));
 const About = React.lazy(() => import("./pages/aboutus"));
 const Login = React.lazy(() => import('./pages/auth/Login'));
 const Register = React.lazy(() => import('./pages/auth/Register'));
-const JobUniverse = React.lazy(()=> import('./pages/jobuniverse'))
+const JobUniverse = React.lazy(() => import('./pages/jobuniverse'))
+const JobDescription = React.lazy(() => import('./pages/jobdescription'))
 function App() {
   return (
     <Router>
       <Topbar />
       <Navbar />
 
-      
+
       <Routes>
         <Route
           path="/"
@@ -31,7 +32,7 @@ function App() {
             </React.Suspense>
           }
         />
-	<Route
+        <Route
           path="/about"
           element={
             <React.Suspense fallback={<div>Loading About Us...</div>}>
@@ -52,6 +53,14 @@ function App() {
           element={
             <React.Suspense fallback={<div>Loading Register...</div>}>
               <Register />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="/job-description"
+          element={
+            <React.Suspense fallback={<div>Loading Register...</div>}>
+              <JobDescription />
             </React.Suspense>
           }
         />

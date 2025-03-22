@@ -9,7 +9,7 @@ import Images from "../../../assets/images/Image";
 const navbarData = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  { name: "Job Universe", path: "/jobs" },
+  { name: "Job Universe", path: "/jobuniverse" },
   { name: "FAQ", path: "/faq" },
   { name: "Resources ▼", path: "/resources" },
   { name: "Learn", path: "/learn" }

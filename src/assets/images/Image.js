@@ -42,6 +42,9 @@ import Founder1 from './founder(1).png';
 import Founder2 from './founder(2).png';
 import FounderBack from './founder-background.png';
 import AuthBackground from './AuthBackground.png';
+import Next from './next.png'
+import NextActive from './nextactive.png'
+import TestimonialImage from './testimonial.png'
 const Images = {
   Logo,
   Img_Ellipse,
@@ -86,6 +89,9 @@ const Images = {
   Founder2,
   FounderBack,
   AuthBackground,
+  Next,
+  NextActive,
+  TestimonialImage
 };
 
 export default Images;
