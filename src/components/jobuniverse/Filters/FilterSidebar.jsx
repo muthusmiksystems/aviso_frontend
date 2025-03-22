@@ -1,131 +1,153 @@
-"use client"
+import React, { useState } from "react";
+import FilterCheckbox from "./FilterCheckbox"; // Import the component
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Import icons for toggle
 
-import Images from "../../../assets/images/Image"
+const FilterSidebar = ({ jobdata }) => {
+    const [selectedFilters, setSelectedFilters] = useState({
+        sortBy: "Most Relevant",
+        jobType: [],
+        education: [],
+        extraFilter: [],
+    });
 
-export default function WhatWeProvide() {
+    // Extract unique job titles
+    const jobTitles = [...new Set(jobdata.map((job) => job.title))];
+
+    // Extract unique education levels
+    const educationLevels = [...new Set(jobdata.flatMap((job) => job.education_levels))];
+
+    // State for section toggle
+    const [openSections, setOpenSections] = useState({
+        sortBy: true,
+        jobType: true,
+        extraFilter: true,
+        education: true,
+    });
+
+    const handleCheckboxChange = (category, value) => {
+        setSelectedFilters((prev) => ({
+            ...prev,
+            [category]: prev[category].includes(value)
+                ? prev[category].filter((item) => item !== value)
+                : [...prev[category], value],
+        }));
+    };
+
+    const toggleSection = (section) => {
+        setOpenSections((prev) => ({
+            ...prev,
+            [section]: !prev[section],
+        }));
+    };
+
     return (
-        <div className="relative w-full overflow-hidden bg-gradient-to-r from-purple-500 via-fuchsia-400 to-blue-400 py-20">
-            {/* Top curved shape */}
-            <div className="absolute top-0 left-0 right-0 h-24 bg-white rounded-b-[50%] w-full"></div>
+        <>
+            <div className="flex justify-between items-center mb-2 p-4 ">
+                <h2 className="text-lg font-semibold">Filters</h2>
+                <button
+                    onClick={() =>
+                        setSelectedFilters({
+                            sortBy: "Most Relevant",
+                            jobType: [],
+                            education: [],
+                            extraFilter: [],
+                        })
+                    }
+                    className="text-[#29ABE2] text-sm"
+                >
+                    Clear All
+                </button>
+            </div>
+            <div className=" bg-white p-4 rounded-lg">
 
-            {/* Bottom curved shape */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-white rounded-t-[50%] w-full"></div>
-
-            <div className="container mx-auto px-4 pt-10 pb-16 relative z-10">
-                {/* Heading */}
-                <div className="text-center text-white mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-2">What We Provide</h2>
-                    <p className="text-xl">Elevate Your Learning Journey with Our Exclusive Offerings</p>
+                {/* Sort By */}
+                <div className=" py-2">
+                    <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection("sortBy")}>
+                        <h3 className="font-semibold">Sort By</h3>
+                        {openSections.sortBy ? <FaChevronUp /> : <FaChevronDown />}
+                    </div>
+                    {openSections.sortBy && (
+                        <div className="mt-2">
+                            {["Most Relevant", "Most Recent", "Top Salary"].map((option) => (
+                                <FilterCheckbox
+                                    key={option}
+                                    label={option}
+                                    checked={selectedFilters.sortBy === option}
+                                    onChange={() => setSelectedFilters({ ...selectedFilters, sortBy: option })}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
 
-                {/* Features grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative">
-                    {/* Connecting lines */}
-                    <div className="absolute hidden lg:block inset-0 z-0">
-                        {/* Horizontal line */}
-                        <img
-                            src={Images.vector6}
-                            alt="Connecting line"
-                            width={100}
-                            height={2}
-                            className="absolute top-1/3 left-50 transform -translate-y-1/2"
-                        />
-
-                        {/* Diagonal line */}
-                        <img
-                            src={Images.vector7}
-                            alt="Connecting line"
-                            width={300}
-                            height={2}
-                            className="absolute top-1/3 right-1/4 transform rotate-45"
-                            style={{ transformOrigin: "right center" }}
-                        />
-
-                        {/* Yellow dot */}
-                        <div className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full bg-yellow-300 -translate-x-1/2 -translate-y-1/2"></div>
+                {/* Job Type */}
+                <div className=" py-2">
+                    <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection("jobType")}>
+                        <h3 className="font-semibold">Job Type</h3>
+                        {openSections.jobType ? <FaChevronUp /> : <FaChevronDown />}
                     </div>
-
-                    {/* Feature 1 - Personalized Learning Paths */}
-                    <div className="flex flex-col items-center text-center">
-                        <div className="relative w-2/3 h-2/3 mb-4">
-                            <img
-                                src={Images.vector5}
-                                alt="Purple blob"
-                                className="absolute inset-0 h-full w-full"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                {/* <Book className="w-16 h-16 text-white" /> */}
-                            </div>
+                    {openSections.jobType && (
+                        <div className="mt-2">
+                            {jobTitles.map((title) => (
+                                <FilterCheckbox
+                                    key={title}
+                                    label={title}
+                                    checked={selectedFilters.jobType.includes(title)}
+                                    onChange={() => handleCheckboxChange("jobType", title)}
+                                />
+                            ))}
                         </div>
-                        <h3 className="text-white text-xl font-semibold mb-2">Personalized Learning Paths</h3>
-                        <p className="text-white/80 text-sm">
-                            Lorem ipsum dolor sit amet consectetur. Aliquam senectus et id montes. Congue lobortis placerat.
-                        </p>
-                    </div>
+                    )}
+                </div>
 
-                    {/* Feature 2 - Dedicated Educator Guidance */}
-                    <div className="flex flex-col items-center text-center mt-10 lg:mt-34">
-                        <div className="relative w-2/3 h-2/3 mb-4">
-                            <img
-                                src={Images.vector1}
-                                alt="Blue blob"
-                                className="absolute inset-0 h-full w-full"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                {/* <User className="w-16 h-16 text-white" /> */}
-                            </div>
-                        </div>
-                        <h3 className="text-white text-xl font-semibold mb-2">Dedicated Educator Guidance</h3>
-                        <p className="text-white/80 text-sm">
-                            Lorem ipsum dolor sit amet consectetur. Fames ut quisque morbi sit. Scelerisque nibh faucibus donec vitae
-                            elit. In amet tempor elit.
-                        </p>
+                {/* Extra Filter */}
+                <div className=" py-2">
+                    <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection("extraFilter")}>
+                        <h3 className="font-semibold">Extra Filter</h3>
+                        {openSections.extraFilter ? <FaChevronUp /> : <FaChevronDown />}
                     </div>
+                    {openSections.extraFilter && (
+                        <div className="mt-2">
+                            {["Option 1", "Option 2", "Option 3", "Option 4"].map((option) => (
+                                <FilterCheckbox
+                                    key={option}
+                                    label={option}
+                                    checked={selectedFilters.extraFilter.includes(option)}
+                                    onChange={() => handleCheckboxChange("extraFilter", option)}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
 
-                    {/* Feature 3 - Expertly Curated Resources */}
-                    <div className="flex flex-col items-center text-center">
-                        <div className="relative w-40 h-32 mb-4">
-                            <img
-                                src={Images.vector3}
-                                alt="Cyan blob"
-                                width={160}
-                                height={128}
-                                className="absolute inset-0"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                {/* <Award className="w-16 h-16 text-white" /> */}
-                            </div>
-                        </div>
-                        <h3 className="text-white text-xl font-semibold mb-2">Expertly Curated Resources</h3>
-                        <p className="text-white/80 text-sm">
-                            Lorem ipsum dolor sit amet consectetur. Odio diam pellentesque porta eget donec lectus sit vitae. Ut nunc
-                            facilisis diam sit diam diam. Faucet commodi.
-                        </p>
+                {/* Education */}
+                <div className=" py-2">
+                    <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection("education")}>
+                        <h3 className="font-semibold">Education</h3>
+                        {openSections.education ? <FaChevronUp /> : <FaChevronDown />}
                     </div>
+                    {openSections.education && (
+                        <div className="mt-2">
+                            {educationLevels.map((level) => (
+                                <FilterCheckbox
+                                    key={level}
+                                    label={level}
+                                    checked={selectedFilters.education.includes(level)}
+                                    onChange={() => handleCheckboxChange("education", level)}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
 
-                    {/* Feature 4 - Supportive Community */}
-                    <div className="flex flex-col items-center text-center mt-8 lg:mt-24">
-                        <div className="relative w-36 h-36 mb-4">
-                            <img
-                                src={Images.vector2}
-                                alt="Pink blob"
-                                width={144}
-                                height={144}
-                                className="absolute inset-0"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                {/* <Users className="w-16 h-16 text-white" /> */}
-                            </div>
-                        </div>
-                        <h3 className="text-white text-xl font-semibold mb-2">Supportive Community</h3>
-                        <p className="text-white/80 text-sm">
-                            Lorem ipsum dolor sit amet consectetur. Aliquam senectus et id montes. Congue lobortis placerat eros et.
-                            Faucet commodi.
-                        </p>
-                    </div>
+                {/* Industry & Job Function */}
+                <div className="py-2">
+                    <h3 className="font-semibold">Industry</h3>
+                    <h3 className="font-semibold">Job Function</h3>
                 </div>
             </div>
-        </div>
-    )
-}
+        </>
+    );
+};
 
+export default FilterSidebar;

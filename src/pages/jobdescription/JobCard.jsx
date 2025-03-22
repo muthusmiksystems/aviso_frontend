@@ -1,6 +1,6 @@
 import React from "react";
 import { FaMapMarkerAlt, FaDollarSign, FaUsers, FaRegBookmark } from "react-icons/fa";
-import { Img } from "../../common/Img";
+import { Img } from "../../components/common/Img";
 
 function JobCard({ job ,jobdescription}) {
   return (
@@ -28,7 +28,7 @@ function JobCard({ job ,jobdescription}) {
 
       {/* Education Levels */}
       <div className="flex flex-wrap mt-4 gap-2">
-        {job.education_levels.map((level, index) => (
+        {job.tags.map((level, index) => (
           <span
             key={index}
             className="bg-[#F4F4F4] text-[#787878] text-xs font-medium px-2 py-1 rounded-md"
@@ -41,26 +41,26 @@ function JobCard({ job ,jobdescription}) {
       {/* Salary, Location & Vacancies */}
       <div className="mt-4 space-y-2 text-xs font-medium text-[#787878]">
         <div className="flex items-center gap-2">
-          <FaDollarSign className="bg-[#F4F4F4] rounded-lg " />
-          USD <span className="text-[#29ABE2]"> {job.salary_range}</span>
+          Rating: <span className="text-[#29ABE2]"> {job.rating}</span>
         </div>
         <div className="flex items-center gap-2">
-          <FaMapMarkerAlt className="bg-[#F4F4F4] rounded-lg " />
-          {job.location}
+          Ranking: <span className="text-[#29ABE2]"> {job.ranking}</span>
         </div>
         <div className="flex items-center gap-2">
-          <FaUsers className="bg-[#F4F4F4] rounded-lg " />
-          Estimated Vacancies: {job.estimated_vacancies}
+          Estimation cost: {job.estimated_cost}
+        </div>
+        <div className="flex items-center gap-2">
+          Rich Extracurricular Activities: {job.extracurricular_activities}
         </div>
       </div>
 
       {/* Action Buttons */}
       <div className="mt-6 flex justify-between">
         <button className="bg-[#F4F4F4] px-5 py-2 rounded-full font-semibold text-xs" onClick={()=>jobdescription(job)}>
-          Detail Info
+          Registration Info 
         </button>
         <button className="bg-[#29ABE2] text-white px-4 py-2 rounded-full text-xs ">
-          Enroll Now
+          Visit Website
         </button>
       </div>
     </div>
