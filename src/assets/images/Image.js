@@ -28,6 +28,10 @@ import BusinessPeople from "./businesspeople.png";
 import Professionalone from "./professional-1.png";
 import Professionaltwo from "./professional-2.png";
 import Professionalthree from "./professional-3.png";
+import vector9 from './Vector9.png'
+import vector10 from './Vector10.png'
+import vector11 from './Vector11.png'
+import vector12 from './Vector12.png'
 const Images = {
   Logo,
   Img_Ellipse,
@@ -58,6 +62,10 @@ const Images = {
   Professionalone,
   Professionaltwo,
   Professionalthree,
+  vector9,
+  vector10,
+  vector11,
+  vector12,
 };
 
 export default Images;

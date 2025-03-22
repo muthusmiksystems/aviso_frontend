@@ -1,7 +1,7 @@
 import React from 'react'
 import { Img } from '../../components/common/Img'
 import Images from '../../assets/images/Image'
-import GetInTouchForm from '../../components/getintouch/GetInTouchForm'
+import GetInTouchForm from '../../components/home/getintouch/GetInTouchForm'
 
 function GetInTouch() {
     return (

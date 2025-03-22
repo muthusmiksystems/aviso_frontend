@@ -1,6 +1,7 @@
 import React from 'react';
 import { Img } from '../../components/common/Img';
 import Images from '../../assets/images/Image';
+import Bubble from '../../components/home/Bubble';
 
 const WhatWeProvide = () => {
 
@@ -10,21 +11,22 @@ const WhatWeProvide = () => {
             <Img
                 src={Images.BgEffect}
                 alt="background effect"
-                className="absolute inset-0 h-[100%] w-full"
+                className=" hidden lg:block absolute inset-0 h-[100%] w-full"
             />
-
+            <div className=" lg:hidden bg-gradient-to-r from-[#B82D97] via-[#57B3D3] to-[#76ABFC] absolute inset-0 h-[100%] w-full"></div>
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-4 py-16">
+            <div className="relative z-10 container mx-auto  py-16">
                 {/* Header Section */}
-                <div className="text-center text-white mt-18 md:mt-26">
+                <div className="text-center text-white mt-2 md:mt-4 lg:mt-24 mb-10">
                     <h1 className="text-xl md:text-5xl font-bold mb-2 md:mb-4">What We Provide</h1>
                     <p className="text-[10px] sm:text-2xl font-semibold text-nowrap sm:text-wrap">
                         Elevate Your Learning Journey with Our Exclusive Offerings
                     </p>
                 </div>
-
-                <div className="">
-                    {/* Logo Section */}
+                {/* <div className=''> */}
+                <Bubble />
+                {/* </div> */}
+                {/* <div className="">
                     <div className="flex items-center h-full">
                         <Img
                             src={Images.Effect}
@@ -50,7 +52,7 @@ const WhatWeProvide = () => {
                             <p className="text-[8px] sm:text-xs md:text-sm font-medium opacity-90">Lorem ipsum dolor sit amet consectetur. Aliquam aenean et id montes.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
