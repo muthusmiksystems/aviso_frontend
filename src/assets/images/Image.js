@@ -28,10 +28,20 @@ import BusinessPeople from "./businesspeople.png";
 import Professionalone from "./professional-1.png";
 import Professionaltwo from "./professional-2.png";
 import Professionalthree from "./professional-3.png";
-import vector9 from './Vector9.png'
-import vector10 from './Vector10.png'
-import vector11 from './Vector11.png'
-import vector12 from './Vector12.png'
+import vector9 from './Vector9.png';
+import vector10 from './Vector10.png';
+import vector11 from './Vector11.png';
+import vector12 from './Vector12.png';
+import aboutImage from "./AboutImg.png";
+import careerJourneyMain from "./careerjourneymain.png";
+import careerJourney from './careerjourney.png';
+import careerJourney1 from './careerjourney(1).png';
+import Team from '../images/team.png';
+import Teamcover from './teamcover.png';
+import Founder1 from './founder(1).png';
+import Founder2 from './founder(2).png';
+import FounderBack from './founder-background.png';
+import AuthBackground from './AuthBackground.png';
 const Images = {
   Logo,
   Img_Ellipse,
@@ -66,6 +76,16 @@ const Images = {
   vector10,
   vector11,
   vector12,
+  aboutImage,
+  careerJourneyMain,
+  careerJourney,
+  careerJourney1,
+  Team,
+  Teamcover,
+  Founder1,
+  Founder2,
+  FounderBack,
+  AuthBackground,
 };
 
 export default Images;

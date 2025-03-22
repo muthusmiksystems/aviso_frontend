@@ -14,8 +14,8 @@ import Footer from "../../components/common/Footer";
 function index() {
   return (
     <div className="fonts-[OmnesArabic]">
-      <Topbar />
-      <Navbar />
+      {/*<Topbar />
+      <Navbar /> */}
       <HeroSection />
       <Clients />
       <WhyChoiceUs />
