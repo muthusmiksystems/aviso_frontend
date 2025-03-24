@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        omnesarabic: ['OmnesArabic', 'sans-serif'],
+        omnesarabic: ["OmnesArabic", "sans-serif"],
       },
       textColor: {
         primary: "#B82D97",
@@ -12,6 +12,7 @@ module.exports = {
         black600: "#13131A",
         gray100: "#F5F5F5",
         gray200: "#78828A",
+        "blue-100": "#29ABE2",
         // Ensure the color is added under 'colors'
       },
       backgroundImage: {

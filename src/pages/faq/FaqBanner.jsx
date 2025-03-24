@@ -3,7 +3,7 @@ import React from "react";
 import Images from "../../assets/images/Image";
 import { Link } from "react-router-dom";
 
-const AboutBanner = () => {
+const FaqBanner = () => {
   return (
     <section
       style={{
@@ -14,31 +14,31 @@ const AboutBanner = () => {
     >
       {/* Left Content */}
       <div className="md:w-1/2 text-left">
-        <h3 className="text-lg font-bold">About Us</h3>
+        <h3 className="text-lg font-bold">FAQ</h3>
         <h1 className="text-4xl md:text-5xl font-black leading-tight mt-2">
-          One Platform for All
+          Frequently Asked Questions
         </h1>
         <div className="mt-4 text-sm flex space-x-2 text-gray-200">
           <Link to="/" className="font-bold text-white hover:underline">
             Home
           </Link>
           <span>›</span>
-          <Link to="/about" className="font-bold hover:underline">
-            About Us
+          <Link to="/faq" className="font-bold hover:underline">
+            FAQ
           </Link>
         </div>
       </div>
 
       {/* Right Image */}
-      <div className="md:w-1/2 mt-8 md:mt-0 flex justify-end">
+      <div className="max-w-4xl ">
         <img
-          src={Images.aboutImage}
+          src={Images.FaqBanner}
           alt="About Us Illustration"
-          className="w-full max-w-[550px] h-[200px] md:h-[390px] md:mt-38 mt-0"
+          className="w-[85%]"
         />
       </div>
     </section>
   );
 };
 
-export default AboutBanner;
+export default FaqBanner;
