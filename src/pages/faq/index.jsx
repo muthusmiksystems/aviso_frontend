@@ -7,7 +7,7 @@ import FaqBanner from "./FaqBanner";
 
 export default function () {
   return (
-    <main className="min-h-screen ">
+    <main className="min-h-screen font-[OmnesArabic]">
       <FaqBanner />
       <div className="px-8 mt-12 md:mt-28">
         <FaqSection />

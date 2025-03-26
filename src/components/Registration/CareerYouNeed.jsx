@@ -6,8 +6,8 @@ import { Pagination, Navigation } from "swiper/modules";
 import "./CareerYouNeed.css";
 import Images from "../../assets/images/Image";
 
-const CareerYouNeed = () => {
-    const [selectedCareer, setSelectedCareer] = useState("ENGINEER");
+const CareerYouNeed = ({ formData, setFormData }) => {
+    const [selectedCareer, setSelectedCareer] = useState(formData?.career || "ENGINEER");
     const [activeIndex, setActiveIndex] = useState(0);
 
     const careers = [
@@ -22,7 +22,14 @@ const CareerYouNeed = () => {
         { title: "DATA SCIENTIST1", subtitle: "AI & ML", image: Images.ErrorImage },
         { title: "GRAPHIC DESIGNER1", subtitle: "UI/UX & Branding", image: Images.ErrorImage }
     ];
-    
+
+    const handleclick = (item) => {
+        setSelectedCareer(item);
+        setFormData((prevData) => ({
+            ...prevData,
+            career: item
+        }));
+    };
 
     return (
         <>
@@ -55,7 +62,7 @@ const CareerYouNeed = () => {
                     {careers.map((career) => (
                         <SwiperSlide key={career.title}>
                             <div
-                                onClick={() => setSelectedCareer(career.title)}
+                                onClick={() => handleclick(career.title)}
                                 className={`border-2 rounded-lg p-6 cursor-pointer transition ${selectedCareer === career.title ? "border-[#29ABE2]" : "border-gray-300"
                                     }`}
                             >

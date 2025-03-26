@@ -1,35 +1,25 @@
-// "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Images from "../../assets/images/Image";
-
-// Sample FAQ data - you can move this to a separate JSON file
-const faqData = [
-  {
-    question: "Sollicitudin fermentum ultricies hac.",
-    answer:
-      "Erat malesuada fringilla dolor, egestas dictum ultricies nec. Nulla mi sollicitudin et, consectetur. Elit purus ut eu adipiscing dignissim sapien, ultricies eu. Adipiscing eros, consequat in porttitor quam et nulla.",
-  },
-  {
-    question: "Nulla fermentum erat orci tellus Erat eget.",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-  },
-  {
-    question: "Ac dictum gravida dui sem vitae faucibus.",
-    answer:
-      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.",
-  },
-  {
-    question: "quam cursus odio sed magna id iaculis.",
-    answer:
-      "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-  },
-];
+import axios from "axios";
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [faqData, setFaqData] = useState([]); // State to store FAQ data
+  const [openIndex, setOpenIndex] = useState(0); // State to track the open FAQ item
+
+  // Fetch FAQ data
+  useEffect(() => {
+    const fetchFaqData = async () => {
+      try {
+        const response = await axios.get("/src/data/faqData.json"); // Adjust the path if necessary
+        setFaqData(response.data);
+      } catch (error) {
+        console.error("Error fetching FAQ data:", error);
+      }
+    };
+
+    fetchFaqData();
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);

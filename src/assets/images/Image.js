@@ -1,5 +1,6 @@
 // src/assets/images.js
 import Logo from "./Logo.png"; // Import the image directly
+import Logoo from "./Logoo.png";
 import Img_Ellipse from "./img_ellipse.png";
 import Hero_Banner from "./hero_banner.png";
 import Client1 from "./client1.png";
@@ -50,8 +51,15 @@ import Faqbilling from "./faqbilling.jpg";
 import Community from "./community.png";
 import FaqBanner from "./faqbanner.png";
 import Pricingbg from "./pricingbackground.png";
+import Steper1 from './steper1.png';
+import Steper2 from './steper2.png';
+import Steper3 from './steper3.png';
+import Thanks from './thanks.png';
+import ErrorImage from './profileerrorimage.webp';
+import Search from "./search-normal.png";
 const Images = {
   Logo,
+  Logoo,
   Img_Ellipse,
   Hero_Banner,
   Client1,
@@ -102,6 +110,12 @@ const Images = {
   Community,
   FaqBanner,
   Pricingbg,
+  Thanks,
+  Steper1: Steper1,
+  Steper2: Steper2,
+  Steper3: Steper3,
+  ErrorImage,
+Search,
 };
 
 export default Images;

@@ -54,11 +54,11 @@ const categories = [
 ];
 const JobList = () => {
     return (
-        <div className="bg-[#ffff] container mx-auto px-6 py-12">
+        <div className="bg-[#ffff] mx-auto px-6 md:px-16 py-12 font-[OmnesArabic]">
             {/* Header */}
-            <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-around items-center">
-                <div className="max-w-lg">
-                    <p className="text-gray-600 text-lg mb-4">
+            <div className="py-12 flex flex-col lg:flex-row justify-between">
+                <div className="order-2 lg:order-1 max-w-lg sm:mt-5">
+                    <p className="text-gray-600 text-base font-regular mb-4">
                         Lorem ipsum dolor sit amet consectetur. Molestie erat morbi scelerisque sed nec vitae.
                         Nullam auctor augue sed dignissim mauris ornare augue donec sed. Venenatis in adipiscing turpis gravida proin.
                     </p>
@@ -66,37 +66,37 @@ const JobList = () => {
                     {/* Job Categories */}
                     <div className="flex flex-wrap gap-3">
                         {categories.map((category, index) => (
-                            <span
+                            <button
                                 key={index}
-                                className={`px-5 py-2 text-sm font-medium rounded-full transition ${category.active
+                                className={`px-5 py-2 text-lg font-medium rounded-full transition font-regular ${category.active
                                     ? "bg-gradient-to-b from-[#FB46E8] to-[#A82884] text-white shadow-md"
                                     : "bg-gray-100 text-gray-700"
                                     }`}
                             >
                                 {category.name}
-                            </span>
+                            </button>
                         ))}
                     </div>
                 </div>
 
                 {/* Right Side: Header & Button */}
-                <div className="text-center mt-8 md:mt-0">
-                    <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                <div className="order-1 lg:order-2 ">
+                    <h2 className="text-5xl font-semibold text-gray-900 leading-tight text-justify">
                         Building Careers with <br /> Industry Leaders
                     </h2>
 
-                    <button className="mt-4 px-6 py-3 text-white font-semibold rounded-full bg-gradient-to-b from-[#FB46E8] to-[#A82884] shadow-lg hover:opacity-90 transition">
+                    <button className="mt-4 px-6 py-3 text-white text-lg font-medium rounded-full bg-gradient-to-b from-[#FB46E8] to-[#A82884] shadow-lg hover:opacity-90 transition">
                         Job Types Universe
                     </button>
                 </div>
             </div>
 
             {/* Job Cards Grid */}
-            <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                 {jobTypes.map((job, index) => (
                     <div
                         key={index}
-                        className="bg-[#F8F8FA]  rounded-xl p-4"
+                        className="bg-[#F8F8FA] rounded-xl p-4 flex flex-col justify-between h-full"
                     >
                         <h3 className="text-xl font-semibold text-gray-900 mb-3">{job.title}</h3>
 
@@ -105,21 +105,21 @@ const JobList = () => {
                             {job.tags.map((tag, tagIndex) => (
                                 <span
                                     key={tagIndex}
-                                    className="px-3 py-1 text-xs font-medium bg-[#F6EBF5] text-gray-700 rounded-full"
+                                    className="px-3 py-1 text-base font-regular bg-[#F6EBF5] text-gray-700 rounded"
                                 >
                                     {tag}
                                 </span>
                             ))}
                         </div>
 
-                        <p className="text-gray-600 text-sm mb-4">{job.description}</p>
+                        <p className="text-gray-600 font-regular text-sm mb-4">{job.description}</p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex justify-between mx-auto items-center">
-                            <button className="px-3 sm:px-4 py-1 flex mx-auto text-center justify-center sm:py-2 w-1/2 sm:w-3/4  text-xs sm:text-sm border border-[#57B3D3] text-[#57B3D3] rounded-full hover:bg-[#57B3D3] hover:text-white transition">
+                        <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2 items-center">
+                            <button className="px-3 sm:px-4 py-1 mx-auto sm:py-2 w-1/2 sm:w-3/4 text-base font-regular sm:text-sm border border-[#57B3D3] text-[#57B3D3] rounded-full hover:bg-[#57B3D3] hover:text-white transition">
                                 Apply Now
                             </button>
-                            <p className="text-gray-800 text-xs sm:text-xs text-center sm:text-left">
-                                Salary range: <span className="text-sm sm:text-base font-semibold text-gray-900 ">{job.salary}</span>
+                            <p className="text-gray-800 text-xs font-regular sm:text-xs text-center sm:text-left">
+                                Salary range: <span className="text-sm sm:text-sm font-semibold text-gray-900 ">{job.salary}</span>
                             </p>
                         </div>
 

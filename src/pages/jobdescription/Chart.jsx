@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, Cell, Pie, PieChart } from "recharts"
+import { Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer } from "recharts"
 import { Calendar, MoreHorizontal, Settings } from "lucide-react"
 
 export default function StatsCard() {
@@ -50,20 +50,21 @@ export default function StatsCard() {
                     </button>
                 </div>
 
-                <div className="h-48 mt-4">
-                    <BarChart
-                        width={350}
-                        height={180}
-                        data={barData}
-                        margin={{ top: 10, right: 0, left: -20, bottom: 0 }}
-                        barSize={20}
-                        barGap={2}
-                    >
-                        <Bar dataKey="category1" stackId="stack" fill={colors.category1} radius={[0, 0, 0, 0]} />
-                        <Bar dataKey="category2" stackId="stack" fill={colors.category2} radius={[0, 0, 0, 0]} />
-                        <Bar dataKey="category3" stackId="stack" fill={colors.category3} radius={[0, 0, 4, 4]} />
-                    </BarChart>
+                <div className="w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto h-48 mt-4">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                            data={barData}
+                            margin={{ top: 10, right: 0, left: -20, bottom: 0 }}
+                            barSize={20}
+                            barGap={2}
+                        >
+                            <Bar dataKey="category1" stackId="stack" fill={colors.category1} radius={[0, 0, 0, 0]} />
+                            <Bar dataKey="category2" stackId="stack" fill={colors.category2} radius={[0, 0, 0, 0]} />
+                            <Bar dataKey="category3" stackId="stack" fill={colors.category3} radius={[0, 0, 4, 4]} />
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
+
             </div>
 
             {/* Infographics Section */}

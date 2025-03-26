@@ -4,7 +4,7 @@ import TermsAndConditions from "./TermsAndConditions";
 
 export default function () {
   return (
-    <main className=" ">
+    <main className=" font-[OmnesArabic]">
       <StaticBanner />
       <TermsAndConditions />
       <Footer />

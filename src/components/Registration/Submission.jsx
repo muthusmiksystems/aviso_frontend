@@ -1,8 +1,10 @@
 import React from "react";
 import { FaEnvelope } from "react-icons/fa";
 import Images from "../../assets/images/Image";
+import { useSelector } from "react-redux";
 
 const Submission = () => {
+  const { user } = useSelector((state) => state.auth)
   return (
     <div className="">
       <p className="text-gray-700 text-end font-semibold">Step 3</p>
@@ -19,7 +21,7 @@ const Submission = () => {
       </h2>
 
       <p className="text-gray-600 text-center mt-2">
-        <span className="font-bold text-blue-500">User Name</span> We will Email you soon!
+        <span className="font-bold text-blue-500">{user.firstName} {user.lastName} </span> We will Email you soon!
       </p>
 
       

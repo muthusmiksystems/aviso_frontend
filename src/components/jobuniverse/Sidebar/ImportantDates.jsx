@@ -1,30 +1,31 @@
 import React from 'react'
-import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { FaGreaterThan } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import Icons from '../../../assets/icons/Icons';
+import { GoClock } from 'react-icons/go';
 const jobFairs = [
   {
     title: "Manufacturing industry job fair",
     date: "19 Aug 2026",
     location: "InnoTech Solutions",
-    icon: "🛠️", // Replace with an actual image/icon if needed
+    icon: Icons.Orientation1, 
   },
   {
     title: "Webinar Invitation",
     date: "18 Aug 2026",
     location: "Apex Enterprises",
-    icon: "🔵",
+    icon: Icons.Orientation2,
   },
   {
     title: "Factory job fair",
     date: "17 Aug 2026",
     location: "Genesis Global",
-    icon: "🏭",
+    icon: Icons.Orientation3,
   },
   {
     title: "Industry webinars & Job fairs",
     date: "16 Aug 2026",
     location: "Aspire Enterprises",
-    icon: "🔧",
+    icon: Icons.Exam,
   },
 ];
 function ImportantDates() {
@@ -47,20 +48,20 @@ function ImportantDates() {
             {/* Left Section */}
             <div className="flex items-center space-x-2">
               {/* Icon */}
-              <div className="p-1 bg-white rounded-md shadow">{job.icon}</div>
+              <img src={job.icon} alt="error" className="p-1 bg-white rounded-md shadow"/>
 
               {/* Job Info */}
               <div>
                 <h3 className="font-semibold text-gray-900">{job.title}</h3>
                 <div className="flex items-center text-gray-500  mt-1">
-                  <FaCalendarAlt className="mr-1 text-gray-400" /> {job.date}
+                  <GoClock className="mr-1 text-gray-400" /> {job.date}
                   <FaMapMarkerAlt className="ml-3 mr-1 text-gray-400" /> {job.location}
                 </div>
               </div>
             </div>
 
             {/* Arrow Icon */}
-            <span className="text-gray-500 text-xs"><FaGreaterThan />
+            <span className="text-gray-500 text-xs"><img src={Icons.Greaterthen} alt="greater"/>
             </span>
           </div>
         ))}

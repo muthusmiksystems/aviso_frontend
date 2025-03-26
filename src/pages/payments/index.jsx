@@ -4,7 +4,7 @@ import PricingPackage from "./PricingPackage";
 
 export default function () {
   return (
-    <main className=" ">
+    <main className=" font-[OmnesArabic]">
       <PaymentBanner />
       <PricingPackage />
       <Footer />
