@@ -1,6 +1,4 @@
 import React from "react";
-import Topbar from "../../components/common/Topbar/Topbar";
-import Navbar from "../../components/common/navbar/index";
 import HeroSection from "./HeroSection";
 import Clients from "./Clients";
 import WhyChoiceUs from "./WhyChoiceUs";
@@ -14,8 +12,6 @@ import Footer from "../../components/common/Footer";
 function index() {
   return (
     <div className="fonts-[OmnesArabic]">
-      {/*<Topbar />
-      <Navbar /> */}
       <HeroSection />
       <Clients />
       <WhyChoiceUs />

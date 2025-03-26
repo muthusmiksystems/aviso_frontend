@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { FaBriefcase, FaMapMarkerAlt, FaBuilding, FaDollarSign } from "react-icons/fa";
+import { FaRegBuilding, FaSackDollar } from "react-icons/fa6";
+import { GrLocation } from "react-icons/gr";
+import { TbBriefcase2 } from "react-icons/tb";
 
 const TopFilter = ({ jobdata, onFilter }) => {
   // Extract unique values from jobdata for filtering
@@ -24,10 +26,10 @@ const TopFilter = ({ jobdata, onFilter }) => {
   };
 
   return (
-    <div className="flex fonts-[OmnesArabic] font-thin flex-wrap items-center gap-2 md:gap-3  px-2">
+    <div className="flex justify-between fonts-[OmnesArabic] font-regular flex-wrap items-center gap-2 md:gap-3  px-2">
       {/* Industry Type Dropdown */}
-      <div className="flex items-center bg-white p-2 md:p-3 lg:p-4 rounded-full ">
-        <FaBriefcase className="text-gray-700 mr-2" />
+      <div className="flex items-center bg-white p-2  rounded-full ">
+        <TbBriefcase2 className="text-gray-700 mr-2" />
         <span className="text-gray-700 text-sm">Industry Type:</span>
         <select
           className="ml-2 text-gray-900 text-sm bg-transparent focus:outline-none"
@@ -42,8 +44,8 @@ const TopFilter = ({ jobdata, onFilter }) => {
       </div>
 
       {/* Location Dropdown */}
-      <div className="flex items-center bg-white p-2 md:p-3 lg:p-4 rounded-full ">
-        <FaMapMarkerAlt className="text-gray-700 mr-2" />
+      <div className="flex items-center bg-white p-2  rounded-full ">
+        <GrLocation className="text-gray-700 mr-2" />
         <select
           className="text-gray-900 text-sm bg-transparent focus:outline-none"
           value={location}
@@ -57,8 +59,8 @@ const TopFilter = ({ jobdata, onFilter }) => {
       </div>
 
       {/* Relocate Option */}
-      <div className="flex items-center bg-white p-2 md:p-3 lg:p-4 rounded-full ">
-        <FaBuilding className="text-gray-700 mr-2" />
+      <div className="flex items-center bg-white p-2  rounded-full ">
+        <FaRegBuilding  className="text-gray-700 mr-2" />
         <select
           className="text-gray-900 text-sm bg-transparent focus:outline-none"
           value={relocate}
@@ -71,8 +73,8 @@ const TopFilter = ({ jobdata, onFilter }) => {
       </div>
 
       {/* Salary Range Dropdown */}
-      <div className="flex items-center bg-white p-2 md:p-3 lg:p-4 rounded-full ">
-        <FaDollarSign className="text-gray-700 mr-2" />
+      <div className="flex items-center bg-white p-2  rounded-full ">
+        <FaSackDollar className="text-gray-700 mr-2" />
         <select
           className="text-gray-900 text-sm bg-transparent focus:outline-none"
           value={salary}
@@ -87,7 +89,7 @@ const TopFilter = ({ jobdata, onFilter }) => {
 
       {/* Clear All Button */}
       <button
-        className="bg-white p-2 md:p-3 lg:p-4 px-6 text-gray-700 text-sm rounded-full  hover:bg-gray-100"
+        className="bg-white p-2  px-6 text-gray-700 text-sm rounded-full  hover:bg-gray-100"
         onClick={() => { setIndustry(""); setLocation(""); setRelocate("Relocate"); setSalary(""); onFilter(jobdata); }}
       >
         Clear All
@@ -95,7 +97,7 @@ const TopFilter = ({ jobdata, onFilter }) => {
 
       {/* Search Button */}
       <button
-        className="bg-blue-500 text-white p-2 md:p-3 lg:p-4 px-6 rounded-full text-sm hover:bg-blue-600"
+        className="bg-[#48C2F2] text-white p-2  px-6 rounded-full text-sm cursor-pointer"
         onClick={handleSearch}
       >
         Search

@@ -1,40 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Images from "../../assets/images/Image";
 import CustomButton from "../../components/common/Button";
+import axios from "axios";
 
 const LearningJourney = () => {
-  const articles = [
-    {
-      id: 1,
-      date: "January 10, 2025",
-      title: "Lorem ipsum dolor sit amet",
-      content:
-        "Lorem ipsum dolor sit amet consectetur. Viverra commodo pulvinar ultricies aliquam. Lectus.",
-      image: Images.Professionalthree,
-    },
-    {
-      id: 2,
-      date: "January 12, 2025",
-      title: "Lorem ipsum dolor sit amet",
-      content:
-        "Lorem ipsum dolor sit amet consectetur. Sed nullam faucibus felis suspendisse. Dignissim posuere.",
-      image: Images.Professionaltwo,
-    },
-    {
-      id: 3,
-      date: "January 15, 2025",
-      title: "Lorem ipsum dolor sit amet",
-      content:
-        "Lorem ipsum dolor sit amet consectetur. Vel tortor tristique aliquam cras adipiscing viverra facilisi eget.",
-      image: Images.Professionalone,
-    },
-  ];
+  const [articles, setArticles] = useState([]);
+
+  // Fetch articles data
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get("/src/data/articles.json"); // Adjust the path if necessary
+        const dataWithImages = response.data.map((article) => ({
+          ...article,
+          image: Images[article.image] || "/placeholder.svg", // Resolve image dynamically
+        }));
+        setArticles(dataWithImages);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-6 md:px-16 py-12   font-[OmnesArabic]">
       <div className="mt-4">
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-6 sm:mb-10">
           Embark on a Journey of
           <br className="hidden sm:block" /> Continuous Learning
         </h2>

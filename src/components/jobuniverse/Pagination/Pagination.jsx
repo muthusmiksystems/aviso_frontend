@@ -13,7 +13,7 @@ function Pagination({ totalJobs, jobsPerPage, currentPage, setCurrentPage }) {
         disabled={currentPage === 1}
         className={`opacity-${currentPage === 1 ? "50" : "100"}`}
       >
-        <Img src={Images.NextActive} alt="Previous" className="h-14 w-10" />
+        <Img src={Images.NextActive} alt="Previous" className="h-[34px] w-[20px]" />
       </button>
 {/* 
       {[...Array(totalPages)].map((_, index) => (
@@ -33,7 +33,7 @@ function Pagination({ totalJobs, jobsPerPage, currentPage, setCurrentPage }) {
         disabled={currentPage === totalPages}
         className={`opacity-${currentPage === totalPages ? "50" : "100"}`}
       >
-        <Img src={Images.Next} alt="Next" className="h-14 w-10" />
+        <Img src={Images.Next} alt="Next" className="h-[34px] w-[20px]" />
       </button>
     </div>
   );

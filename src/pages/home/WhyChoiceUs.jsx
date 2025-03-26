@@ -30,30 +30,30 @@ const WhyChoiceUs = () => {
     ];
 
     return (
-        <section className="py-16 px-6 md:px-16 bg-[#ffff] border-b-1 border-grey-300">
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <section className="py-16 px-6 md:px-16 bg-[#ffff] font-[OmnesArabic]">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
                 <div className="grid sm:grid-cols-2 gap-8">
                     {features.map((feature, index) => (
                         <div key={index} className="">
-                            <div className=" flex space-x-4 items-center justify-start md:justify-center  text-white  text-xl">
+                            <div className=" flex space-x-4 items-center justify-start lg:justify-center  text-white  text-xl">
                                 <Img src={feature.icon} alt="test" />
-                                <h6 className="font-bold text-gray-900">{feature.title}</h6>
+                                <h6 className="font-semibold text-xl text-gray-900">{feature.title}</h6>
                             </div>
                             <div>
 
-                                <p className="text-gray-600 mt-3">{feature.description}</p>
+                                <p className="text-gray-600 text-base font-regular text-justify mt-3">{feature.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
                 <div>
-                    <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                    <h2 className="text-5xl font-semibold text-gray-900 leading-tight">
                         Empowering Careers, One Choice at a Time
                     </h2>
-                    <p className="mt-4 text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur. Mauris tincidunt viverra amet id enim mauris non sagittis a.
+                    <p className="mt-4 text-gray-600 font-regular text-base text-justify">
+                    Lorem ipsum dolor sit amet consectetur. Mauris tincidunt viverra amet id enim mauris non sagittis a. Pellentesque id imperdiet nunc volutpat lobortis urna turpis. Nam volutpat morbi enim gravida amet et porttitor lacus mi. Ultrices eget volutpat ornare mi sed vitae lorem. Lectus dictum elit ipsum ipsum.
                     </p>
-                    <button className="mt-6 px-6 py-3 border-2 border-[#57B3D3] text-[#57B3D3] font-semibold rounded-full hover:bg-[#57B3D3] hover:text-white transition-all">
+                    <button className="mt-6 px-6 py-3 border-2 border-[#57B3D3] text-[#57B3D3] font-semibold text-lg rounded-full hover:bg-[#57B3D3] hover:text-white transition-all">
                         Get Started and Track your Career Path
                     </button>
                 </div>

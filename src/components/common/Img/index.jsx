@@ -1,7 +1,8 @@
 import React from "react"
+import Images from "../../../assets/images/Image"
 const Img =({
     className,
-    src="src/assets/images/Logo.png",
+    src=Images.Logo,
     alt="testImg",
     ...restProps
 })=>{

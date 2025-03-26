@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaTh, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import { IoGridOutline } from 'react-icons/io5';
 function JobFilter() {
   return (
     <div className="flex flex-col md:flex-row justify-between items-center p-3 gap-5 bg-gray-100">
@@ -23,7 +24,7 @@ function JobFilter() {
 
                     {/* Grid Icon */}
                     <button className="bg-blue-500 text-white p-2 rounded-md shadow">
-                        <FaTh />
+                        <IoGridOutline />
                     </button>
 
                     {/* List Icon */}

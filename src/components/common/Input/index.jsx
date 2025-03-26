@@ -54,7 +54,7 @@ const Input = React.forwardRef(
       <label className={`${className} !pl-0 flex items-center  cursor-text ${shape && shapes[shape]} ${variant && (variants[variant]?.[color] || variants[variant])} ${size && sizes[size]}`}>
         {label && label}
         {prefix && prefix}
-        <input ref={ref} type={type} name={name} placeholder={placeholder} onChange={onChange} {...restProps} />
+        <input ref={ref} type={type} name={name} placeholder={placeholder} onChange={onChange} className={className} {...restProps} />
         {suffix && suffix}
       </label>
     );

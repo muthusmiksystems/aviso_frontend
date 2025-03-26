@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import JobFair from "../../components/jobuniverse/Sidebar/JobFair";
 import FilterSidebar from "../../components/jobuniverse/Filters/FilterSidebar";
 import JobList from "../../components/jobuniverse/JobCards/JobList";
 import ImportantDates from "../../components/jobuniverse/Sidebar/ImportantDates";
 import TopFilter from "../../components/jobuniverse/Header/Navbar";
 import JobFilter from "../../components/jobuniverse/Filters/JobFilter";
+import { FaFilter } from "react-icons/fa";
 
 const jobdata = [
     {
@@ -90,6 +91,8 @@ const jobdata = [
 ];
 
 function JobUniverse() {
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+
     const [filteredJobs, setFilteredJobs] = useState(jobdata);
     const [currentFilters, setCurrentFilters] = useState({
         industry: "",
@@ -110,31 +113,68 @@ function JobUniverse() {
 
         setFilteredJobs(filtered);
     };
+
+    useEffect(() => {
+          const handleResize = () => {
+            if (window.innerWidth >= 1024) {
+                setIsFilterOpen(false);
+            }
+          };
+      
+          window.addEventListener("resize", handleResize);
+          return () => window.removeEventListener("resize", handleResize);
+        }, []);
+    
     return (
         <div className="bg-gray-100 min-h-screen">
             {/* Grid Layout */}
             <div className="mx-auto px-4 py-6 flex flex-col lg:flex-row gap-2">
 
                 {/* Sidebar (Takes 3 columns on large screens) */}
-                <div className="hidden lg:block w-full lg:w-[15%]">
+                <div className="hidden lg:block w-full lg:w-[20%]">
                     <FilterSidebar jobdata={jobdata} onApplyFilters={applyFilters} />
                 </div>
 
+                {/* Filter Button for Small Screens */}
+                <div className="lg:hidden w-full flex justify-start p-4">
+                    <button
+                        onClick={() => setIsFilterOpen(true)}
+                        className="bg-[#48C2F2] text-white px-4 py-2 rounded-md flex items-center space-x-2"
+                    >
+                        <FaFilter />
+                        <span>Filters</span>
+                    </button>
+                </div>
+
+                {/* Modal for Small Screens */}
+                {isFilterOpen && (
+                    <div className="fixed inset-0  z-50 h-screen overflow-y-scroll">
+                        <div className="bg-white p-6 rounded-lg w-4/5 max-w-md relative">
+                            <button
+                                className="absolute top-4 right-4 text-black "
+                                onClick={() => setIsFilterOpen(false)}
+                            >
+                                ✖
+                            </button>
+                            <FilterSidebar jobdata={jobdata} onApplyFilters={applyFilters} />
+                        </div>
+                    </div>
+                )}
                 {/* Main Content (Takes 9 columns on large screens) */}
-                <div className="w-full lg:w-[85%] py-4 px-2">
+                <div className="w-full lg:w-[80%] py-4 px-2">
                     {/* Top Filter Section (Full Width inside Main Content) */}
                     <TopFilter jobdata={jobdata} onFilter={applyFilters} />
 
-                    <div className="flex flex-col lg:flex-row gap-6 py-4 px-2">
+                    <div className="flex flex-col lg:flex-row gap-6 py-4">
 
                         {/* Job Listings (Takes 8 columns) */}
-                        <div className="w-full lg:w-[70%]">
+                        <div className="w-full lg:w-[65%]">
                             <JobFilter />
                             <JobList jobs={filteredJobs} />
                         </div>
 
                         {/* JobFair & ImportantDates (Takes 4 columns) */}
-                        <div className="w-full lg:w-[30%] space-y-6">
+                        <div className="w-full lg:w-[35%] space-y-6">
                             <JobFair />
                             <ImportantDates />
                         </div>
