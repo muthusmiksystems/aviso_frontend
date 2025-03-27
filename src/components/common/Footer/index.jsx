@@ -1,25 +1,26 @@
 import React from "react";
 import Images from "../../../assets/images/Image";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F9F9F9] py-8 px-4 md:px-8 lg:px-12  font-omnesarabic">
+    <footer className="bg-[#F9F9F9] py-8 px-4 sm:px-8  md:px-16 lg:px-20  font-[omnesarabic]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl ">
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
-          <div className="col-span-1">
-            <div className="flex items-center space-x-2">
+          <div className="col-span-1 ">
+            <div className="flex items-center space-x-2 justify-center md:justify-start mb-4">
               <img src={Images.Logo} alt="Logo" className="h-13" />
             </div>
-            <p className="text-[#525252] text-md font-normal   my-8">
+            <p className="text-[#525252] text-md font-normal text-center md:text-start my-8">
               Lorem ipsum dolor sit amet consectetur. Libero id consectetur
               maecenas euismod sit. Lectus adipiscing euismod.
             </p>
           </div>
 
           {/* Pages Navigation */}
-          <div className="col-span-1 mx-auto">
+          <div className="col-span-1 mx-auto text-center md:text-start">
             <h3 className="text-[#0D062D] mb-4 font-semibold">Pages</h3>
             <ul className="space-y-4 text-md text-[#525252]">
               <li>
@@ -38,9 +39,9 @@ export default function Footer() {
           </div>
 
           {/* Contact Information */}
-          <div className="col-span-1 mx-auto">
+          <div className="col-span-1 mx-auto text-center md:text-start">
             <h3 className=" mb-4 font-semibold">Contact</h3>
-            <p className="text-[#525252] text-md mb-4 fonr-normal">
+            <p className="text-[#525252] text-md mb-4 font-normal">
               4118 Address Rd, Address,
               <br />
               Address 98765, Lebanon
@@ -70,27 +71,18 @@ export default function Footer() {
           </div>
 
           {/* Social Media */}
-          <div className="col-span-1">
+          <div className="col-span-1 mx-auto">
             <h3 className="font-semibold text-black  mb-4">Follow Us</h3>
-            <div className="flex space-x-3 mt-4">
+            <div className="flex space-x-2 mt-4  ">
               <a
                 href="#"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center  "
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center  "
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="text-black"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                </svg>
+                <FaLinkedinIn/>
               </a>
               <a
                 href="#"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center "
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +97,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center "
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +112,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center "
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +127,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center "
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +146,7 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto mt-8 pt-8 border-t-2 border-gray-200">
         <p className="text-center text-[#525252]  text-md font-normal">
           © Copyright 2025 - AVISO Careers Global Inc. All right reserved.
         </p>

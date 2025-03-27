@@ -9,7 +9,7 @@ import { dismissToast, triggerToast } from "../../components/common/toast/Toast"
 export const loginUser = createAsyncThunk("auth/login", async (credentials, { rejectWithValue }) => {
   try {
     const response = await axiosInstance.post(`/login`, credentials);
-    localStorage.setItem("token", response.data.data.token); // Store token
+    // localStorage.setItem("token", response.data.data.token); // Store token
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response?.data?.message || "Login failed");
@@ -76,15 +76,15 @@ export const uploadImage = createAsyncThunk(
 
 
 export const logoutUser = createAsyncThunk("auth/logout", async () => {
-  localStorage.removeItem("token");
-  return null;
+  // localStorage.removeItem("token");
+  return true;
 });
 
 // Auth Slice
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: null,
+    user: JSON.parse(localStorage.getItem("user")) || null,
     token: localStorage.getItem("token") || null,
     status: "idle", // idle | loading | succeeded | failed
     error: null,
@@ -98,6 +98,8 @@ const authSlice = createSlice({
         triggerToast("Logging in...", "info");
       })
       .addCase(loginUser.fulfilled, (state, action) => {
+        localStorage.setItem("token", action.payload.data.token)
+        localStorage.setItem("user", JSON.stringify(action.payload.data.user));
         dismissToast()
         triggerToast(`Welcome ${action?.payload?.data?.user?.firstName}...  ${action.payload.message} ..!`, "success");
         state.status = "succeeded";
@@ -139,7 +141,7 @@ const authSlice = createSlice({
         triggerToast("Profile Updating...", "info");
 
       })
-      .addCase(updateUser.fulfilled, (state,action) => {
+      .addCase(updateUser.fulfilled, (state, action) => {
         state.status = "succeded";
         state.user = action.payload.data.user;
         dismissToast()
@@ -153,6 +155,8 @@ const authSlice = createSlice({
       })
       // Logout
       .addCase(logoutUser.fulfilled, (state) => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         state.user = null;
         state.token = null;
         state.error = null;

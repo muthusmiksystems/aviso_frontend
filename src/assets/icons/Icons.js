@@ -8,6 +8,8 @@ import Orientation1 from "./orientation1.png";
 import Orientation2 from "./orientation2.png";
 import Orientation3 from "./orientation3.png";
 import Exam from "./exam.png";
+import DownArrow from './downarrow.png'
+import Line from './Line.png'
 const Icons = {
     Greaterthen,
     Manufacrure,
@@ -17,7 +19,9 @@ const Icons = {
     Orientation1,
     Orientation2,
     Orientation3,
-    Exam
+    Exam,
+    DownArrow,
+    Line
 };
 
 export default Icons;

@@ -22,7 +22,9 @@ function App() {
   return (
     <Router>
       <Topbar />
+      <div className="mt-8 sm:mt-13">
       <Navbar />
+      </div>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />

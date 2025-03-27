@@ -11,7 +11,7 @@ import LearningJourney from "./LearningJourney";
 import Footer from "../../components/common/Footer";
 function index() {
   return (
-    <div className="fonts-[OmnesArabic]">
+    <div className="font-[OmnesArabic]">
       <HeroSection />
       <Clients />
       <WhyChoiceUs />

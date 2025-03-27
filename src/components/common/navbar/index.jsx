@@ -1,10 +1,13 @@
 
 import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Images from "../../../assets/images/Image";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../../redux/features/authSlice";
+import { Img } from "../Img";
+import Icons from "../../../assets/icons/Icons";
 
 const navbarData = [
   { name: "Home", path: "/" },
@@ -12,7 +15,7 @@ const navbarData = [
   { name: "Job Universe", path: "/jobuniverse" },
   { name: "FAQ", path: "/faq" },
   {
-    name: "Resources ▼",
+    name: "Resources ",
     path: "/resources",
     subMenu: [
       { name: "Guides", path: "/resources/guides" },
@@ -25,6 +28,7 @@ const navbarData = [
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dispatch = useDispatch()
   const [resourceDropdownOpen, setResourceDropdownOpen] = useState(false);
   const { user } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -38,33 +42,38 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="shadow-md font-[OmnesArabic] bg-gradient-to-r from-white via-[#F7F8FE] to-[#F0F0FC]">
-      <div className="flex justify-between items-center px-4 md:px-22 py-3 w-full">
+    <nav className="shadow-xs font-[OmnesArabic] bg-gradient-to-r from-white via-[#F7F8FE] to-[#F0F0FC]">
+      <div className="flex justify-between items-center px-8 md:px-28 lg:px-20 xl:px-28 py-7 w-full">
 
         {/* Logo */}
         <div className="flex items-center">
           <NavLink to="/">
-            <img src={Images.Logo} alt="Logo" className="h-10 md:h-12" />
+            <Img src={Images.Logo} alt="Logo" className="h-10 md:h-[58px] md:w-[220px]" />
           </NavLink>
         </div>
 
-        <div className="hidden lg:flex items-center space-x-6 text-gray-600">
+        <div className="hidden lg:flex items-center xl:space-x-7 md:space-x-4 text-gray-600">
           {navbarData.map((item, index) =>
             item.subMenu ? (
               <div
                 key={index}
-                className="relative group"
+                className="relative group flex items-center gap-3"
                 onMouseEnter={() => setResourceDropdownOpen(true)}
+                onMouseLeave={() => setResourceDropdownOpen(false)}
               >
-                <NavLink to={item.path} className="font-regular text-sm text-[#959595] cursor-pointer">
+                <NavLink to={item.path} className="font-regular text-sm md:text-[16px] text-[#959595] cursor-pointer">
                   {item.name}
                 </NavLink>
+                {/* Option 1: Icon */}
+                {/* <FaChevronDown className="text-[#959595] text-xs mt-0.5" /> */}
+                {/* Option 2: Image */}
+                <Img src={Icons.DownArrow} alt="Dropdown" className="mt-0.5" />
 
                 {/* Dropdown Menu */}
                 {resourceDropdownOpen && (
                   <div
                     onMouseLeave={() => setResourceDropdownOpen(false)}
-                    className="absolute left-0 mt-2 w-44 bg-white shadow-md rounded-md py-2 z-50">
+                    className="absolute left-0 mt-40 w-40 bg-white shadow-md rounded-md py-2 z-50">
                     {item.subMenu.map((subItem, subIndex) => (
                       <NavLink
                         key={subIndex}
@@ -83,7 +92,7 @@ function Navbar() {
                 key={index}
                 to={item.path}
                 className={({ isActive }) =>
-                  `font-regular text-sm cursor-pointer ${isActive ? "text-[#b82d97] font-bold" : "text-[#959595]"
+                  `font-regular text-sm md:text-[16px] cursor-pointer ${isActive ? "text-[#cf36b4] font-bold" : "text-[#959595]"
                   }`
                 }
               >
@@ -91,17 +100,17 @@ function Navbar() {
               </NavLink>
             )
           )}
-          <span>|</span>
-          <img src={Images.Search} alt="Search" />
+          <span><Img src={Icons.Line} alt="Dropdown" className=" h-8 w-[2px] mt-0.5" /></span>
+          <img src={Images.Search} alt="Search" className="h-[24px] w-[24px]" />
           {user ?
-            <NavLink to="/login">
-              <button className="bg-[#24A1DD] text-white px-4 py-1.5 rounded-full text-sm">
+            <div onClick={() => dispatch(logoutUser())}>
+              <button className="bg-[#24A1DD] text-white px-4 py-2 rounded-full text-sm cursor-pointer">
                 Logout
               </button>
-            </NavLink>
+            </div>
             :
             <NavLink to="/register">
-              <button className="bg-[#24A1DD] text-white px-4 py-1.5 rounded-full text-sm">
+              <button className="bg-[#24A1DD] text-white px-6 py-2  rounded-full text-sm md:text-[18px] cursor-pointer">
                 Sign Up
               </button>
             </NavLink>

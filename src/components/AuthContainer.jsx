@@ -18,7 +18,7 @@ const AuthContainer = ({ children }) => {
   }, []);
   return (
     <div className="font-[OmnesArabic]">
-      <div className="bg-gradient-to-r from-[#B82D97] via-[#57B3D3] to-[#76ABFC] lg:bg-none bg-cover pb-16"
+      <div className="bg-gradient-to-r from-[#B82D97] via-[#57B3D3] to-[#76ABFC] lg:bg-none bg-cover h-auto  pb-16"
         style={{ backgroundImage: bgImage }}
       >
         {children}

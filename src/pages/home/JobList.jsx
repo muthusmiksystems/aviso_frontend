@@ -56,9 +56,9 @@ const JobList = () => {
     return (
         <div className="bg-[#ffff] mx-auto px-6 md:px-16 py-12 font-[OmnesArabic]">
             {/* Header */}
-            <div className="py-12 flex flex-col lg:flex-row justify-between">
-                <div className="order-2 lg:order-1 max-w-lg sm:mt-5">
-                    <p className="text-gray-600 text-base font-regular mb-4">
+            <div className="py-12 flex flex-col lg:flex-row justify-between ">
+                <div className="order-2 lg:order-1 w-full lg:max-w-lg mt-3 sm:mt-5">
+                    <p className="text-[#525252] text-base font-regular mb-4">
                         Lorem ipsum dolor sit amet consectetur. Molestie erat morbi scelerisque sed nec vitae.
                         Nullam auctor augue sed dignissim mauris ornare augue donec sed. Venenatis in adipiscing turpis gravida proin.
                     </p>
@@ -68,9 +68,9 @@ const JobList = () => {
                         {categories.map((category, index) => (
                             <button
                                 key={index}
-                                className={`px-5 py-2 text-lg font-medium rounded-full transition font-regular ${category.active
-                                    ? "bg-gradient-to-b from-[#FB46E8] to-[#A82884] text-white shadow-md"
-                                    : "bg-gray-100 text-gray-700"
+                                className={`px-5 py-2 text-lg  rounded-full transition cursor-pointer ${category.active
+                                    ? "bg-gradient-to-b from-[#FB46E8] to-[#A82884] text-white font-semibold  shadow-md"
+                                    : "bg-[#F5F5F5] font-regular text-[#28282F]"
                                     }`}
                             >
                                 {category.name}
@@ -80,12 +80,12 @@ const JobList = () => {
                 </div>
 
                 {/* Right Side: Header & Button */}
-                <div className="order-1 lg:order-2 ">
-                    <h2 className="text-5xl font-semibold text-gray-900 leading-tight text-justify">
+                <div className="order-1 lg:order-2 w-full lg:max-w-lg">
+                    <h2 className="text-5xl font-semibold text-[#151B23]">
                         Building Careers with <br /> Industry Leaders
                     </h2>
 
-                    <button className="mt-4 px-6 py-3 text-white text-lg font-medium rounded-full bg-gradient-to-b from-[#FB46E8] to-[#A82884] shadow-lg hover:opacity-90 transition">
+                    <button className="mt-6 lg:mt-15 px-7 py-3 text-white text-lg font-medium rounded-full bg-gradient-to-b from-[#FB46E8] to-[#A82884] shadow-lg cursor-pointer">
                         Job Types Universe
                     </button>
                 </div>
@@ -98,28 +98,28 @@ const JobList = () => {
                         key={index}
                         className="bg-[#F8F8FA] rounded-xl p-4 flex flex-col justify-between h-full"
                     >
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3">{job.title}</h3>
+                        <h3 className="text-xl font-semibold text-[#27272E] mb-3">{job.title}</h3>
 
                         {/* Job Tags */}
                         <div className="flex flex-wrap gap-2 mb-4">
                             {job.tags.map((tag, tagIndex) => (
                                 <span
                                     key={tagIndex}
-                                    className="px-3 py-1 text-base font-regular bg-[#F6EBF5] text-gray-700 rounded"
+                                    className="px-3 py-1 text-xs font-regular bg-[#F6EBF5] text-[#262626] rounded"
                                 >
                                     {tag}
                                 </span>
                             ))}
                         </div>
 
-                        <p className="text-gray-600 font-regular text-sm mb-4">{job.description}</p>
+                        <p className="text-[#425466] font-regular text-sm mb-4">{job.description}</p>
 
                         <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2 items-center">
-                            <button className="px-3 sm:px-4 py-1 mx-auto sm:py-2 w-1/2 sm:w-3/4 text-base font-regular sm:text-sm border border-[#57B3D3] text-[#57B3D3] rounded-full hover:bg-[#57B3D3] hover:text-white transition">
+                            <button className="px-3 sm:px-4 py-1  sm:py-2 w-1/2 sm:w-3/4 text-base font-regular sm:text-sm border border-[#4DAACD] text-[#4DAACD] rounded-full hover:bg-[#4DAACD] hover:text-white transition">
                                 Apply Now
                             </button>
-                            <p className="text-gray-800 text-xs font-regular sm:text-xs text-center sm:text-left">
-                                Salary range: <span className="text-sm sm:text-sm font-semibold text-gray-900 ">{job.salary}</span>
+                            <p className="">
+                                <span className="font-regular text-xs text-[#0D062D]">Salary range:</span> <span className="text-sm lg:text-md font-semibold text-[#0D062D] ">{job.salary}</span>
                             </p>
                         </div>
 
