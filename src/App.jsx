@@ -4,6 +4,7 @@ import Topbar from "./components/common/Topbar/Topbar";
 import Navbar from "./components/common/Navbar";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import ToastMessage from "./components/common/toast/Toast";
+import Footer from "./components/common/Footer";
 
 // Lazy-loaded pages
 const Home = React.lazy(() => import("./pages/home"));
@@ -44,6 +45,7 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
+      <Footer/>
       <ToastMessage />
     </Router>
   );

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa"; // Import the Font Awesome check icon
 import CustomButton from "../../components/common/Button"; // Import your CustomButton component
@@ -14,7 +12,7 @@ const PricingPackage = () => {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const response = await axios.get("/src/data/pricingPackages.json"); // Adjust the path if necessary
+        const response = await axios.get("/data/pricingPackages.json"); // Adjust the path if necessary
         setPackages(response.data);
       } catch (error) {
         console.error("Error fetching pricing packages:", error);

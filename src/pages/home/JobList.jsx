@@ -58,17 +58,17 @@ const JobList = () => {
             {/* Header */}
             <div className="py-12 flex flex-col lg:flex-row justify-between ">
                 <div className="order-2 lg:order-1 w-full lg:max-w-lg mt-3 sm:mt-5">
-                    <p className="text-[#525252] text-base font-regular mb-4">
+                    <p className="text-[#525252] text-base font-regular mb-6">
                         Lorem ipsum dolor sit amet consectetur. Molestie erat morbi scelerisque sed nec vitae.
                         Nullam auctor augue sed dignissim mauris ornare augue donec sed. Venenatis in adipiscing turpis gravida proin.
                     </p>
 
                     {/* Job Categories */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-5">
                         {categories.map((category, index) => (
                             <button
                                 key={index}
-                                className={`px-5 py-2 text-lg  rounded-full transition cursor-pointer ${category.active
+                                className={`px-5 py-1 text-lg  rounded-full transition cursor-pointer ${category.active
                                     ? "bg-gradient-to-b from-[#FB46E8] to-[#A82884] text-white font-semibold  shadow-md"
                                     : "bg-[#F5F5F5] font-regular text-[#28282F]"
                                     }`}
@@ -81,11 +81,11 @@ const JobList = () => {
 
                 {/* Right Side: Header & Button */}
                 <div className="order-1 lg:order-2 w-full lg:max-w-lg">
-                    <h2 className="text-5xl font-semibold text-[#151B23]">
-                        Building Careers with <br /> Industry Leaders
+                    <h2 className="text-[30px] lg:text-[40px] xl:text-[48px] font-semibold text-[#151B23] leading-14">
+                        Building Careers with  Industry Leaders
                     </h2>
 
-                    <button className="mt-6 lg:mt-15 px-7 py-3 text-white text-lg font-medium rounded-full bg-gradient-to-b from-[#FB46E8] to-[#A82884] shadow-lg cursor-pointer">
+                    <button className="mt-3 lg:mt-8 px-7 py-3 text-white text-[18px] font-medium rounded-full bg-gradient-to-b from-[#FB46E8] to-[#A82884] shadow-lg cursor-pointer">
                         Job Types Universe
                     </button>
                 </div>
@@ -98,7 +98,7 @@ const JobList = () => {
                         key={index}
                         className="bg-[#F8F8FA] rounded-xl p-4 flex flex-col justify-between h-full"
                     >
-                        <h3 className="text-xl font-semibold text-[#27272E] mb-3">{job.title}</h3>
+                        <h3 className="text-xl font-semibold text-[#27272E] mb-5">{job.title}</h3>
 
                         {/* Job Tags */}
                         <div className="flex flex-wrap gap-2 mb-4">
@@ -115,11 +115,11 @@ const JobList = () => {
                         <p className="text-[#425466] font-regular text-sm mb-4">{job.description}</p>
 
                         <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2 items-center">
-                            <button className="px-3 sm:px-4 py-1  sm:py-2 w-1/2 sm:w-3/4 text-base font-regular sm:text-sm border border-[#4DAACD] text-[#4DAACD] rounded-full hover:bg-[#4DAACD] hover:text-white transition">
+                            <button className="sm:px-4 py-3 xl:py-3.5 w-1/2 md:w-3/4 md:w-3/4 xl:w-2/3 text-base font-regular sm:text-sm border border-[#4DAACD] text-[#4DAACD] rounded-full hover:bg-[#4DAACD] hover:text-white transition">
                                 Apply Now
                             </button>
-                            <p className="">
-                                <span className="font-regular text-xs text-[#0D062D]">Salary range:</span> <span className="text-sm lg:text-md font-semibold text-[#0D062D] ">{job.salary}</span>
+                            <p className="flex justify-start sm:mt-0 mt-3 md:justify-between items-center">
+                                <span className="font-regular text-xs text-[#0D062D]">Salary range:</span> <span className="text-[18px] font-semibold text-[#0D062D] ">{job.salary}</span>
                             </p>
                         </div>
 

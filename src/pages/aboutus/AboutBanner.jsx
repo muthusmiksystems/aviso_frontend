@@ -14,27 +14,27 @@ const AboutBanner = () => {
     >
       {/* Left Content */}
       <div className="md:w-1/2 text-left">
-        <h3 className="text-lg font-semibold">About Us</h3>
-        <h1 className="text-4xl md:text-5xl font-semibold leading-tight mt-2">
+        <h3 className="text-[24px] font-semibold text-[#FAFAFA]">About Us</h3>
+        <h1 className="text-4xl md:text-[50px] lg:text-[58px] xl:text-[64px] font-semibold text-[#FAFAFA] mt-2">
           One Platform for All
         </h1>
-        <div className="mt-4 text-sm flex space-x-2 text-gray-200">
-          <Link to="/" className="font-bold text-white hover:underline">
+        <div className="mt-4  text-[16px] font-bold text-white flex space-x-2 ">
+          <Link to="/" className="cursor-pointer">
             Home
           </Link>
           <span>›</span>
-          <Link to="#" className="font-bold hover:underline">
+          <Link to="#" className="cursor-pointer">
             About Us
           </Link>
         </div>
       </div>
 
       {/* Right Image */}
-      <div className="md:w-1/2 mt-[165px]  flex justify-end">
+      <div className="md:w-1/2 mt-10 md:mt-[165px]  flex justify-end">
         <img
           src={Images.aboutImage}
           alt="About Us Illustration"
-          className="w-[400px] h-[350px]"
+          className="w-full h-[350px]"
         />
       </div>
     </section>

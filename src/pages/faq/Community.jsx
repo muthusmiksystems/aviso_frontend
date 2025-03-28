@@ -1,4 +1,3 @@
-
 import {
   FaFacebook,
   FaInstagram,
@@ -14,13 +13,13 @@ export default function CommunitySection() {
     <section className="mb-32 md:mb-24">
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 ">
         <div className="text-center md:text-end">
-          <p className="text-transparent bg-clip-text bg-gradient-to-b from-[#FB46E8] to-[#A82884] font-bold text-xl uppercase tracking-wider">
+          <p className="text-transparent bg-clip-text bg-gradient-to-b from-[#FB46E8] to-[#A82884] font-semibold text-xl uppercase tracking-wider">
             Community
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold my-8">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold my-8">
             Our Community
           </h2>
-          <p className="text-[#29ABE2] font-bold text-lg ">
+          <p className="text-[#29ABE2] font-semibold text-xl ">
             “ imperdi eleifend adipiscing facilisis arcu pharetra ”
           </p>
           <p className="text-[#606060] text-md leading-lg mt-8">

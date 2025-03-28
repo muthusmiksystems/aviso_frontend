@@ -4,7 +4,6 @@ import CareerJourney from './CareerJourney';
 import CareerManagement from './CareerManagement';
 import WeAreTeam from './WeAreTeam';
 import Founders from './Founders';
-import Footer from '../../components/common/Footer';
 
 function index() {
     return (
@@ -14,7 +13,6 @@ function index() {
             <CareerManagement/>
             <WeAreTeam/>
             <Founders/>
-            <Footer/>
         </div>
     )
 }

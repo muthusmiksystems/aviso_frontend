@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import DescriptionBanner from './DescriptionBanner'
-import Footer from '../../components/common/Footer'
 import Testimonial from './Testimonial'
 import JobList from '../../components/jobuniverse/JobCards/JobList'
 import JobCard from './JobCard'
@@ -153,7 +152,6 @@ function index() {
                     ))}
                 </div>
             </div>
-            <Footer />
 
         </div>
     )

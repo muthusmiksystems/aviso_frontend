@@ -10,7 +10,7 @@ const LearningJourney = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get("/src/data/articles.json"); // Adjust the path if necessary
+        const response = await axios.get("/data/articles.json"); // Adjust the path if necessary
         const dataWithImages = response.data.map((article) => ({
           ...article,
           image: Images[article.image] || "/placeholder.svg", // Resolve image dynamically

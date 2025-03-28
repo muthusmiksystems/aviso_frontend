@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import Images from "../../assets/images/Image";
 import axios from "axios";
+import { FaChevronDown } from "react-icons/fa";
+import Images from "../../assets/images/Image";
+import Icons from "../../assets/icons/Icons";
 
 export default function FaqSection() {
-  const [faqData, setFaqData] = useState([]); // State to store FAQ data
-  const [openIndex, setOpenIndex] = useState(0); // State to track the open FAQ item
+  const [faqData, setFaqData] = useState([]);
 
-  // Fetch FAQ data
+  const [openIndex, setOpenIndex] = useState(0);
+
   useEffect(() => {
+    // Fetch FAQ data from the JSON file
     const fetchFaqData = async () => {
       try {
-        const response = await axios.get("/src/data/faqData.json"); // Adjust the path if necessary
+        const response = await axios.get("/data/faqDatas.json");
+
         setFaqData(response.data);
       } catch (error) {
         console.error("Error fetching FAQ data:", error);
@@ -27,9 +30,9 @@ export default function FaqSection() {
 
   return (
     <div className="mx-auto max-w-8xl px-4 sm:px-8 py-8">
-      <div className="flex flex-wrap lg:flex-nowrap gap-8">
+      <div className="flex flex-wrap lg:flex-nowrap gap-8  mt-8">
         {/* Image - Right Side */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center">
+        <div className="w-full lg:w-1/2 flex justify-center items-center order-1 lg:order-0">
           <div className="rounded-lg overflow-hidden max-w-full">
             <img
               src={Images.Faqbilling}
@@ -39,11 +42,11 @@ export default function FaqSection() {
           </div>
         </div>
         {/* FAQ Items - Left Side */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 order-0 lg:order-1">
           <h2 className="text-5xl font-bold mb-6 text-[#131313]">Billing</h2>
           <div className="space-y-2">
             {faqData.map((faq, index) => (
-              <div key={index} className="border-b-2 border-gray-200 pb-2">
+              <div key={index} className="border-b-2 border-[#D7D7D7] pb-2">
                 <button
                   className={`flex justify-between items-center w-full py-4 text-left focus:outline-none ${
                     openIndex === index ? "text-[#29ABE2]" : "text-black"
@@ -51,7 +54,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                 >
                   <span
-                    className={`font-medium text-lg md:text-2xl ${
+                    className={`font-semibold text-md sm:text-lg md:text-2xl ${
                       openIndex === index ? "text-[#29ABE2]" : "text-black"
                     }`}
                   >
@@ -63,7 +66,7 @@ export default function FaqSection() {
                     }`}
                   >
                     {openIndex === index ? (
-                      <FaChevronUp className="h-5 w-5" />
+                      <FaChevronDown className="h-5 w-5" />
                     ) : (
                       <FaChevronDown className="h-5 w-5" />
                     )}
@@ -77,7 +80,22 @@ export default function FaqSection() {
                     transition: "all 0.3s ease-in-out",
                   }}
                 >
-                  <div className="pb-4 text-[#606060]">{faq.answer}</div>
+                  <div className="pb-4 text-[#606060] text-sm sm:text-lg font-light w-[94%]">
+                    {faq.answer}
+                  </div>
+                  {/* Render payment icons if available */}
+                  {/* {faq.paymentIcons && faq.paymentIcons.length > 0 && (
+                    <div className="flex gap-4 mt-4">
+                      {faq.paymentIcons.map((icon, iconIndex) => (
+                        <img
+                          key={iconIndex}
+                          src={Icons.icon}
+                          alt={`Payment icon ${iconIndex + 1}`}
+                          className="h-8 w-auto"
+                        />
+                      ))}
+                    </div>
+                  )}*/}
                 </div>
               </div>
             ))}

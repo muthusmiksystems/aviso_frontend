@@ -3,7 +3,7 @@ import Images from '../../assets/images/Image'
 
 function Bubble() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative pb-24 h-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative pb-34 h-auto ">
             <div className="absolute hidden lg:block inset-0 z-0">
                 {/* Horizontal line */}
                 <img
@@ -32,7 +32,7 @@ function Bubble() {
                     style={{ transformOrigin: "right center" }}
                 />
                 {/* Yellow dot */}
-                <div className="absolute xxl:top-[33%] xl:top-[30%] lg:top-[30%] right-[25%] xl:right-[24%] w-8 h-8 rounded-full bg-yellow-300 -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute xxl:top-[33%] xl:top-[28%] lg:top-[28%] right-[25%] xl:right-[24%] w-8 h-8 rounded-full bg-yellow-300 -translate-x-1/2 -translate-y-1/2"></div>
             </div>
 
             {/* Feature 1 - Personalized Learning Paths */}
@@ -49,7 +49,7 @@ function Bubble() {
 
                 </div>
                 <div className='px-6'>
-                    <h3 className="text-white text-xl font-semibold mb-2 px-10">Personalized Learning Paths</h3>
+                    <h3 className="text-white text-xl font-semibold mb-5 px-10">Personalized Learning Paths</h3>
                     <p className="text-[#FFFFFF] font-semibold text-[15px]">
                         Lorem ipsum dolor sit amet consectetur. Aliquam senectus et id montes. Congue lobortis placerat.
                     </p>
@@ -71,7 +71,7 @@ function Bubble() {
 
                 </div>
                 <div className=''>
-                    <h3 className="text-white text-xl font-semibold mb-2 px-10">Dedicated Educator Guidance</h3>
+                    <h3 className="text-white text-xl font-semibold mb-5 px-10">Dedicated Educator Guidance</h3>
                     <p className="text-[#FFFFFF] font-semibold text-[15px]">
                         Lorem ipsum dolor sit amet consectetur. Fames ut quisque morbi sit. Scelerisque nibh faucibus donec vitae
                         elit. In amet tempor elit.
@@ -93,7 +93,7 @@ function Bubble() {
 
                 </div>
                 <div className='px-6'>
-                    <h3 className="text-white text-xl font-semibold mb-2 px-10">Expertly Curated Resources</h3>
+                    <h3 className="text-white text-xl font-semibold mb-5 px-10">Expertly Curated Resources</h3>
                     <p className="text-[#FFFFFF] font-semibold text-[15px]">
                         Lorem ipsum dolor sit amet consectetur. Odio diam pellentesque porta eget donec lectus sit vitae. Ut nunc
                         facilisis diam sit diam diam. Faucet commodi.
@@ -110,12 +110,12 @@ function Bubble() {
                         className=" inset-0"
                     />
                     <div className="absolute inset-0 flex justify-center w-full">
-                        <img src={Images.vector11} alt='vector11' className='md:w-16 md:h-14 w-10 h-10 mt-10 md:mt-14 lg:mt-16' />
+                        <img src={Images.vector11} alt='vector11' className='lg:w-24 lg:h-12 md:w-20 md:h-14 w-10 h-8 mt-10 md:mt-14 lg:mt-12 xl:mt-16 lg:mr-0 md:mr-10 mr-3' />
                     </div>
 
                 </div>
                 <div className='px-6'>
-                    <h3 className="text-white text-xl font-semibold mb-2">Supportive Community</h3>
+                    <h3 className="text-white text-xl font-semibold mb-5">Supportive Community</h3>
                     <p className="text-white font-semibold text-[15px] ">
                         Lorem ipsum dolor sit amet consectetur. Aliquam senectus et id montes. Congue lobortis placerat eros et.
                         Faucet commodi.
