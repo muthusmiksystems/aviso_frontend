@@ -17,7 +17,7 @@ export default function ConnectUS() {
 
   return (
     <div
-      className="relative w-full bg-white overflow-hidden  py-16 md:py-28"
+      className="relative w-full bg-white overflow-hidden  py-16 md:py-28 font-[omnesarabic]"
       style={{
         backgroundImage: `url(${Images.Backgroundpsuedo})`,
         backgroundRepeat: "no-repeat",
@@ -28,12 +28,12 @@ export default function ConnectUS() {
       <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
           {/* Heading */}
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[#13131A] mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-5xl leading-14 font-semibold  text-[#13131A] mb-4">
             Connect with us and unlock a world of possibilities.
           </h1>
 
           {/* Subheading */}
-          <p className="text-xs sm:text-md md:text-lg text-[#525252] mb-6 sm:mb-8 md:mb-12 px-4 sm:px-20 md:px-40 mt-2">
+          <p className="text-xs sm:text-md md:text-lg text-[#525252] mb-6 sm:mb-8 md:mb-12 px-4 sm:px-20 md:px-40 mt-6 font-normal">
             Lorem ipsum dolor sit amet consectetur. Tortor donec tempus faucibus
             pharetra. Viverra.
           </p>
@@ -41,7 +41,7 @@ export default function ConnectUS() {
           {/* Email subscription form */}
           <form
             onSubmit={handleSubmit}
-            className="flex flex-row  items-center justify-center bg-[#F5F5F5] rounded-full px-2 py-1 max-w-md mx-auto text-[#78828A]"
+            className="flex flex-row  items-center justify-center bg-[#F5F5F5] rounded-full px-2 py-1 max-w-sm mx-auto text-[#78828A]"
           >
             <input
               type="email"
@@ -49,10 +49,10 @@ export default function ConnectUS() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-grow px-4 py-2 bg-transparent focus:outline-none text-sm sm:text-base !text-[#78828A] mb-2 sm:mb-0"
+              className="flex-grow px-4 py-3  focus:outline-none text-sm sm:text-base !text-[#78828A] mb-2 sm:mb-0"
             />
 
-            <CustomButton className="bg-gradient-to-b from-[#FF47ED] to-[#992B8E] text-white shadow-lg px-4 py-2 sm:py-3 tracking-wide text-sm sm:text-md font-semibold">
+            <CustomButton className="bg-gradient-to-b from-[#FF47ED] to-[#992B8E] text-white shadow-lg px-4 py-2 sm:py-2.5 tracking-wide text-sm sm:text-md font-normal ">
               Subscribe
             </CustomButton>
           </form>
