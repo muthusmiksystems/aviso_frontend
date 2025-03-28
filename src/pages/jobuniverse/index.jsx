@@ -6,7 +6,6 @@ import ImportantDates from "../../components/jobuniverse/Sidebar/ImportantDates"
 import TopFilter from "../../components/jobuniverse/Header/Navbar";
 import JobFilter from "../../components/jobuniverse/Filters/JobFilter";
 import { FaFilter } from "react-icons/fa";
-import Footer from "../../components/common/Footer";
 
 const jobdata = [
     {
@@ -184,7 +183,6 @@ function JobUniverse() {
                 </div>
 
             </div>
-            <Footer/>
         </div>
     );
 }

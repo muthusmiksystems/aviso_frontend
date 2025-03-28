@@ -1,6 +1,5 @@
 import Billing from "./Billing";
 import FaqSection from "./FaqSection";
-import Footer from "../../components/common/Footer";
 import ConnectUS from "../home/Connectus";
 import CommunitySection from "./Community";
 import FaqBanner from "./FaqBanner";
@@ -16,7 +15,6 @@ export default function () {
         <ConnectUS />
       </div>
 
-      <Footer />
     </main>
   );
 }

@@ -14,7 +14,7 @@ export default function Testimonials() {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await axios.get("/src/data/testimonials.json");
+        const response = await axios.get("/data/testimonials.json");
         setTestimonials(response.data);
       } catch (error) {
         console.error("Error fetching testimonials:", error);

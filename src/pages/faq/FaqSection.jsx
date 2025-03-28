@@ -1,35 +1,25 @@
 // "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Images from "../../assets/images/Image";
 
-// Sample FAQ data - you can move this to a separate JSON file
-const faqData = [
-  {
-    question: "Sollicitudin fermentum ultricies hac.",
-    answer:
-      "Erat malesuada fringilla dolor, egestas dictum ultricies nec. Nulla mi sollicitudin et, consectetur. Elit purus ut eu adipiscing dignissim sapien, ultricies eu. Adipiscing eros, consequat in porttitor quam et nulla.",
-  },
-  {
-    question: "Nulla fermentum erat orci tellus Erat eget.",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-  },
-  {
-    question: "Ac dictum gravida dui sem vitae faucibus.",
-    answer:
-      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.",
-  },
-  {
-    question: "quam cursus odio sed magna id iaculis.",
-    answer:
-      "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
-  },
-];
-
 export default function FaqSection() {
+  const [faqData, setFaqData] = useState([]);
   const [openIndex, setOpenIndex] = useState(0);
+
+  useEffect(() => {
+    // Fetch FAQ data from the JSON file
+    axios
+      .get("/data/faqData.json")
+      .then((response) => {
+        setFaqData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching FAQ data:", error);
+      });
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -37,27 +27,27 @@ export default function FaqSection() {
 
   return (
     <div className="mx-auto max-w-8xl px-4 sm:px-8 py-8">
-      <div className="text-center mb-8">
-        <p className="text-transparent bg-clip-text bg-gradient-to-b from-[#FB46E8] to-[#A82884] font-bold text-xl uppercase tracking-wider">
+      <div className="text-center mb-16">
+        <p className="text-transparent bg-clip-text bg-gradient-to-b from-[#FB46E8] to-[#A82884] font-semibold text-[20px] md:text-[24px] uppercase tracking-wider">
           READY TO BE YOUR CAREER CONSULTANT
         </p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-8 mb-8">
           Frequently asked questions
         </h1>
-        <p className="text-[#606060] max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet consectetur. At mi nisi fringilla rhoncus
-          praesent enim auctor erat. At mi nisi fringilla rhoncus praesent enim
-          auctor erat.
+        <p className="text-[#606060] max-w-2xl font-light mx-auto">
+          Lorem ipsum dolor sit amet consectetur. At mi elit fringilla rhoncus
+          praesent enim auctor cras. Et hendrerit enim et tellus sagittis non
+          varius. Praesent nullam blandit nibh
         </p>
       </div>
 
-      <div className="flex flex-wrap lg:flex-nowrap gap-8">
+      <div className="flex flex-wrap lg:flex-nowrap gap-8  mt-8">
         {/* FAQ Items - Left Side */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 order-1 lg:order-0">
           <h2 className="text-5xl font-bold mb-6 text-[#131313]">Common</h2>
           <div className="space-y-2">
             {faqData.map((faq, index) => (
-              <div key={index} className="border-b-2 border-gray-200 pb-2">
+              <div key={index} className="border-b-2 border-[#D7D7D7] pb-2">
                 <button
                   className={`flex justify-between items-center w-full py-4 text-left focus:outline-none ${
                     openIndex === index ? "text-[#29ABE2]" : "text-black"
@@ -65,7 +55,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                 >
                   <span
-                    className={`font-medium text-lg md:text-2xl ${
+                    className={`font-semibold text-md sm:text-lg md:text-2xl ${
                       openIndex === index ? "text-[#29ABE2]" : "text-black"
                     }`}
                   >
@@ -77,7 +67,7 @@ export default function FaqSection() {
                     }`}
                   >
                     {openIndex === index ? (
-                      <FaChevronUp className="h-5 w-5" />
+                      <FaChevronDown className="h-5 w-5" />
                     ) : (
                       <FaChevronDown className="h-5 w-5" />
                     )}
@@ -91,7 +81,9 @@ export default function FaqSection() {
                     transition: "all 0.3s ease-in-out",
                   }}
                 >
-                  <div className="pb-4 text-[#606060]">{faq.answer}</div>
+                  <div className="pb-4 text-[#606060] text-sm sm:text-lg font-light w-[94%]">
+                    {faq.answer}
+                  </div>
                 </div>
               </div>
             ))}
@@ -99,7 +91,7 @@ export default function FaqSection() {
         </div>
 
         {/* Image - Right Side */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center">
+        <div className="w-full lg:w-1/2 flex justify-center items-center order-0 lg:order-1">
           <div className="rounded-lg overflow-hidden max-w-full">
             <img
               src={Images.Faq}

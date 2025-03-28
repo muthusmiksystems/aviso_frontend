@@ -8,7 +8,6 @@ import GetInTouch from "./GetInTouch";
 import ConnectUS from "../home/Connectus";
 import Testimonials from "./Testimonial";
 import LearningJourney from "./LearningJourney";
-import Footer from "../../components/common/Footer";
 function index() {
   return (
     <div className="font-[OmnesArabic]">
@@ -21,7 +20,6 @@ function index() {
       <LearningJourney />
       <Testimonials />
       <ConnectUS />
-      <Footer />
     </div>
   );
 }

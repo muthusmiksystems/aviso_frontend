@@ -7,7 +7,6 @@ export default function () {
     <main className=" font-[OmnesArabic]">
       <PaymentBanner />
       <PricingPackage />
-      <Footer />
     </main>
   );
 }
