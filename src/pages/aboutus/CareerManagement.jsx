@@ -37,7 +37,7 @@ const CareerManagement = () => {
 
   return (
     <section
-      className="text-white py-20 px-6 md:px-12 lg:px-20 font-[OmnesArabic]"
+      className="text-white pt-20 px-6 md:px-12 lg:px-20 font-[OmnesArabic]"
       style={{
         background:
           "linear-gradient(to right, #B82D97 17%, #57B3D3 67%, #76ABFC)",
@@ -68,7 +68,7 @@ const CareerManagement = () => {
               {item.icon}
             </div>
             <div>
-              <h3 className="text-xl font-semibold pt-2">{item.title}</h3>
+              <h3 className="text-xl font-semibold py-2">{item.title}</h3>
               <p className="text-gray-600 font-regular mt-1">
                 {item.description}
               </p>

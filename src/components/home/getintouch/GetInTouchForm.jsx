@@ -46,7 +46,7 @@ function GetInTouchForm() {
                         className="w-full bg-transparent border-b border-white text-white  focus:outline-none py-2 h-40"
                     />
                 </div>
-                <button className="w-full mt-12 px-6 py-4 border-2 bg-[#ffff] border-[#ffff] text-black font-semibold text-[19px] rounded-full  transition-all">
+                <button className="w-full mt-12 px-6 py-4 bg-[#F1FAEE] text-black font-semibold text-[19px] rounded-full  transition-all">
                     Send
                 </button>
             </form>

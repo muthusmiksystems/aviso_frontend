@@ -12,9 +12,10 @@ export default function () {
         <FaqSection />
         <Billing />
         <CommunitySection />
+      </div>
+      <div className="mt-28">
         <ConnectUS />
       </div>
-
     </main>
   );
 }

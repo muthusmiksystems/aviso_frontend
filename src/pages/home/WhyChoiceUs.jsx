@@ -18,31 +18,31 @@ const WhyChoiceUs = () => {
       icon: Images.WhyChoice1,
       title: "Extensive Job Knowledge",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Laoreet ac leo massa sit id. Pellentesque in eget tellus adipiscing amet.",
+        " Lorem ipsum dolor sit amet consectetur. Laoreet ac leo massa sit id. Pellentesque in eget tellus adipiscing amet. Porttitor sodales orci eget nisl semper enim ac morbi.",
     },
     {
       icon: Images.WhyChoice2,
       title: "Global User Interface",
       description:
-        "Lorem ipsum dolor sit amet consectetur. At nam magnis lobortis diam mauris. Habitnat quam non magna diam sit nibh.",
+        "Lorem ipsum dolor sit amet consectetur. At nam magnis lobortis diam mauris. Habitant quam non magna diam sit nibh tellus. Dui non ultrices ut at sed amet dolor et.",
     },
     {
       icon: Images.WhyChoice3,
       title: "Custom Job Types Recommendations",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Aliquam vulputate vel lorem quisque viverra eget at vestibulum.",
+        "Lorem ipsum dolor sit amet consectetur. Aliquam vulputate vel lorem quisque viverra eget at vestibulum. Sit est orci in tristique.",
     },
     {
       icon: Images.WhyChoice4,
       title: "Innovative Technology",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Scelerisque mauris donec ut pharetra mauris quis nulla.",
+        "Lorem ipsum dolor sit amet consectetur. Scelerisque mauris donec ut pharetra mauris quis nulla. Felis aenean lacinia orci urna nulla.",
     },
   ];
 
   return (
     <section className="py-16 px-6 md:px-16 bg-[#ffff] font-[OmnesArabic]">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 ">
         <div className="grid sm:grid-cols-2 gap-[55px]">
           {features.map((feature, index) => (
             <div key={index} className="">
@@ -64,7 +64,7 @@ const WhyChoiceUs = () => {
             </div>
           ))}
         </div>
-        <div>
+        <div className="mt-5">
           <h2 className="text-[48px] font-semibold text-gray-900 leading-tight">
             Empowering Careers, One Choice at a Time
           </h2>

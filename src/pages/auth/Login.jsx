@@ -9,26 +9,46 @@ import AuthContainer from "../../components/AuthContainer";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const { loading, error } = useSelector((state) => state.auth);
-
+    const validateForm = () => {
+        let newErrors = {};
+        if (!email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            newErrors.email = "Invalid email format";
+        }
+        if (!password.trim()) {
+            newErrors.password = "password is required";
+        } else if (password.length < 6) {
+            newErrors.password = "Password must be at least 6 characters long";
+        }
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    }
     const handleLogin = (e) => {
         e.preventDefault();
-        dispatch(loginUser({ email, password }))
-            .unwrap()
-            .then((response) => {
-                localStorage.setItem("user", JSON.stringify(response?.data?.user)); // Store user in localStorage
-                if (response?.data?.user?.isRegistered) {
-                    navigate("/student-dashboard");
-                } else {
-                    navigate("/dashboard");
-                }
-            })
-            .catch(() => {});
+        if (!validateForm()) return;
+        try {
+            dispatch(loginUser({ email, password }))
+                .unwrap()
+                .then((response) => {
+                    localStorage.setItem("user", JSON.stringify(response?.data?.user)); // Store user in localStorage
+                    if (response?.data?.user?.isRegistered) {
+                        navigate("/student-dashboard");
+                    } else {
+                        navigate("/dashboard");
+                    }
+                })
+                .catch(() => { });
+        } catch (err) {
+            console.error("Registration error:", err);
+        }
     };
-    
+
 
 
 
@@ -52,12 +72,13 @@ const Login = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="w-full p-3  rounded-lg mt-1 outline-none"
+                                className={`w-full p-3  rounded-lg mt-1 outline-none ${errors.email ? "border border-[#B82D97] text-[#B82D97]" : ""}`}
                                 style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
+                                onChange={(e) => { setEmail(e.target.value); if (email.length > 6) validateForm() }}
+
                             />
+                            {errors.email && <p className="text-[#B82D97] text-sm mt-1">{errors.email}</p>}
                         </div>
 
                         <div className="mb-4">
@@ -65,12 +86,13 @@ const Login = () => {
                             <input
                                 type="password"
                                 placeholder="Enter your password"
-                                className="w-full p-3  rounded-lg mt-1 outline-none"
+                                className={`w-full p-3  rounded-lg mt-1 outline-none ${errors.password ? "border border-[#B82D97] text-[#B82D97]" : ""}`}
                                 style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
+                                onChange={(e) => { setPassword(e.target.value); if (email.length > 6) validateForm() }}
+
                             />
+                            {errors.password && <p className="text-[#B82D97] text-sm mt-1">{errors.password}</p>}
                         </div>
 
                         <button
@@ -80,6 +102,7 @@ const Login = () => {
                         >
                             {loading ? "Logging in..." : "Login"}
                         </button>
+
                     </form>
 
                     <div className="text-center my-4 text-gray-500">or</div>
@@ -94,14 +117,27 @@ const Login = () => {
                         <span className="text-regular">Having trouble <Link to="/login">logging in?</Link> Contact help center</span>
                     </p>
 
-                    <p className="font-[OmnesArabic] font-regular text-xs text-[#8E8E8E] text-center mt-4 px-6 md:px-10 lg:px-24">
-                        This site is protected by reCAPTCHA Enterprise and
-                        the Google <Link to="#" className="text-[#606060] font-semibold">Privacy policy</Link> and <Link to="#" className="text-[#606060] font-semibold">Terms of Service</Link> apply.
-                    </p>
-                </div>
-            </div>
-        </AuthContainer>
-    );
+          <p className="font-[OmnesArabic] font-regular text-xs text-[#8E8E8E] text-center mt-4 px-6 md:px-10 lg:px-24">
+            This site is protected by reCAPTCHA Enterprise and the Google{" "}
+            <Link
+              to="/terms-condition"
+              className="text-[#606060] font-semibold"
+            >
+              Privacy policy
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/terms-condition"
+              className="text-[#606060] font-semibold"
+            >
+              Terms of Service
+            </Link>{" "}
+            apply.
+          </p>
+        </div>
+      </div>
+    </AuthContainer>
+  );
 };
 
 export default Login;

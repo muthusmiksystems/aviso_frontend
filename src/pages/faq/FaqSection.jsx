@@ -31,10 +31,10 @@ export default function FaqSection() {
         <p className="text-transparent bg-clip-text bg-gradient-to-b from-[#FB46E8] to-[#A82884] font-semibold text-[20px] md:text-[24px] uppercase tracking-wider">
           READY TO BE YOUR CAREER CONSULTANT
         </p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-8 mb-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-semibold mt-8 mb-8">
           Frequently asked questions
         </h1>
-        <p className="text-[#606060] max-w-2xl font-light mx-auto">
+        <p className="text-[#606060] max-w-2xl font-light mx-auto text-[16px]">
           Lorem ipsum dolor sit amet consectetur. At mi elit fringilla rhoncus
           praesent enim auctor cras. Et hendrerit enim et tellus sagittis non
           varius. Praesent nullam blandit nibh
@@ -47,7 +47,14 @@ export default function FaqSection() {
           <h2 className="text-5xl font-bold mb-6 text-[#131313]">Common</h2>
           <div className="space-y-2">
             {faqData.map((faq, index) => (
-              <div key={index} className="border-b-2 border-[#D7D7D7] pb-2">
+              <div
+                key={index}
+                className={`pb-2 ${
+                  index === faqData.length - 1
+                    ? ""
+                    : "border-b-2 border-[#D7D7D7]"
+                }`}
+              >
                 <button
                   className={`flex justify-between items-center w-full py-4 text-left focus:outline-none ${
                     openIndex === index ? "text-[#29ABE2]" : "text-black"
@@ -81,7 +88,7 @@ export default function FaqSection() {
                     transition: "all 0.3s ease-in-out",
                   }}
                 >
-                  <div className="pb-4 text-[#606060] text-sm sm:text-lg font-light w-[94%]">
+                  <div className="pb-4 text-[#606060] text-sm sm:text-[16px] font-light w-[94%]">
                     {faq.answer}
                   </div>
                 </div>

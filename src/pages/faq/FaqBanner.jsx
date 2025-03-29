@@ -14,11 +14,11 @@ const FaqBanner = () => {
     >
       {/* Left Content */}
       <div className="md:w-1/2 text-left">
-        <h3 className="text-xl font-semibold">FAQ</h3>
-        <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-6xl font-black leading-tight mt-3 font-semibold">
+        <h3 className="text-[24px] font-semibold">FAQ</h3>
+        <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-[64px] font-black leading-tight mt-3 font-semibold">
           Frequently Asked Questions
         </h1>
-        <div className="mt-3 text-base flex space-x-2 text-gray-200">
+        <div className="mt-3 text-[16px] flex space-x-2  ">
           <Link to="/" className="font-semibold text-white hover:underline">
             Home
           </Link>

@@ -57,6 +57,9 @@ import Steper3 from './steper3.png';
 import Thanks from './thanks.png';
 import ErrorImage from './profileerrorimage.webp';
 import Search from "./search-normal.png";
+import Teambackground from "./teambackground.png";
+import Profilebg from "./profilebg.png";
+import VerifiedBadge from"./VerifiedBadge.png";
 const Images = {
   Logo,
   Logoo,
@@ -115,7 +118,10 @@ const Images = {
   Steper2: Steper2,
   Steper3: Steper3,
   ErrorImage,
-Search,
+  Search,
+  Teambackground,
+  Profilebg,
+  VerifiedBadge
 };
 
 export default Images;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Images from "../../assets/images/Image";
 
 const CareerJourney = () => {
   const [data, setData] = useState(null);
-  console.log("data", data);
 
   useEffect(() => {
     axios
@@ -21,7 +21,7 @@ const CareerJourney = () => {
   }
 
   return (
-    <section className="font-[OmnesArabic] mt-10 md:pt-36 pt-10 pb-16 px-6 md:px-12 lg:px-20">
+    <section className="font-[OmnesArabic] mt-10 md:pt-36 pt-10 pb-20 px-6 md:px-12 lg:px-20">
       <div className="text-left md:flex md:items-center md:justify-between">
         <div className="md:w-1/2">
           <h4 className="text-[#B82D97] font-semibold uppercase text-[24px]">
@@ -71,19 +71,20 @@ const CareerJourney = () => {
       <div className="mt-10 flex flex-col md:flex-row gap-10">
         <div className="md:w-3/5">
           <img
-            src={data?.images?.main}
+            // src={data?.images?.main}
+            src={Images[data.images.main]}
             alt="Career Journey"
             className="w-full h-[620px] rounded-lg object-cover"
           />
         </div>
         <div className="md:w-2/5 flex flex-col gap-10">
           <img
-            src={data.images.teamCollaboration}
+            src={Images[data.images.teamCollaboration]}
             alt="Team Collaboration"
             className="w-full h-[289px] rounded-lg object-cover"
           />
           <img
-            src={data.images.creativeWork}
+            src={Images[data.images.creativeWork]}
             alt="Creative Work"
             className="w-full h-[289px] rounded-lg object-cover"
           />

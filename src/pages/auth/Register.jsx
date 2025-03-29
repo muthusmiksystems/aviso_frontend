@@ -8,6 +8,7 @@ import { registerUser } from "../../redux/features/authSlice";
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
   const { loading, error } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     role: "student",
@@ -28,9 +29,34 @@ const Register = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!formData.mobileNo.trim()) {
+      newErrors.mobileNo = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.mobileNo)) {
+      newErrors.mobileNo = "Invalid phone number (10 digits required)";
+    }
+
+    if (!formData.password.trim()) {
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 7) {
+      newErrors.password = "Password must be at least 7 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+}
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
     try {
       const resultAction = await dispatch(registerUser(formData)).unwrap();
       navigate("/login"); // Redirect to dashboard on success
@@ -68,9 +94,10 @@ const Register = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className="w-full p-3 rounded-lg mt-2 outline-none" style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
-                required
+                className={`w-full p-3 rounded-lg mt-2 outline-none ${errors.firstName ? "border border-[#B82D97] text-[#B82D97]" : ""} `} style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
+                
               />
+              {errors.firstName && <p className="text-[#B82D97] text-sm mt-1">{errors.firstName}</p>}
             </div>
 
             <div>
@@ -81,9 +108,10 @@ const Register = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-		className="w-full p-3  rounded-lg mt-2 outline-none" style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}	
-                required
+                className={`w-full p-3  rounded-lg mt-2 outline-none ${errors.email ? "border border-[#B82D97] text-[#B82D97]" : ""}`} style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
+                
               />
+              {errors.email && <p className="text-[#B82D97] text-sm mt-1">{errors.email}</p>}
             </div>
 
             <div>
@@ -94,9 +122,10 @@ const Register = () => {
                 value={formData.mobileNo}
                 onChange={handleChange}
                 placeholder="Enter your phone number"
-		className="w-full p-3  rounded-lg mt-2 outline-none" style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
-                required
+                className={`w-full p-3  rounded-lg mt-2 outline-none ${errors.mobileNo ? "border border-[#B82D97] text-[#B82D97]" : ""}`} style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
+                
               />
+              {errors.mobileNo && <p className="text-[#B82D97] text-sm mt-1">{errors.mobileNo}</p>}
             </div>
 
             <div>
@@ -107,9 +136,10 @@ const Register = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="7+ Characters"
-		className="w-full p-3  rounded-lg mt-2 outline-none" style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
-                required
+                className={`w-full p-3  rounded-lg mt-2 outline-none ${errors.password ? "border border-[#B82D97] text-[#B82D97]" : ""}`} style={{ backgroundColor: "rgba(148, 215, 244, 0.28)" }}
+                
               />
+              {errors.password && <p className="text-[#B82D97] text-sm mt-1">{errors.password}</p>}
             </div>
 
             <div className="flex items-center">
@@ -132,13 +162,26 @@ const Register = () => {
 
           <hr className="border-gray-300 my-5" />
           <p className="font-[OmnesArabic] font-regular text-xs text-[#8E8E8E] text-center mt-4 px-6 md:px-10 lg:px-24">
-            I accept Aviso's <Link to="#" className="text-[#606060] font-semibold">Terms of Use</Link> and <Link to="#" className="text-[#606060] font-semibold">Privacy Notice</Link>.
+            I accept Aviso's <Link to="/terms-condition" className="text-[#606060] font-semibold">Terms of Use</Link> and <Link to="/terms-condition" className="text-[#606060] font-semibold">Privacy Notice</Link>.
             <span>Having trouble <Link to="/login">logging in?</Link> Contact help center</span>
           </p>
 
           <p className="font-[OmnesArabic] font-regular text-xs text-[#8E8E8E] text-center mt-4 px-6 md:px-10 lg:px-24">
-            This site is protected by reCAPTCHA Enterprise and
-            the Google <Link to="#" className="text-[#606060] font-semibold">Privacy policy</Link> and <Link to="#" className="text-[#606060] font-semibold">Terms of Service</Link> apply.
+            This site is protected by reCAPTCHA Enterprise and the Google{" "}
+            <Link
+              to="/terms-condition"
+              className="text-[#606060] font-semibold"
+            >
+              Privacy policy
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/terms-condition"
+              className="text-[#606060] font-semibold"
+            >
+              Terms of Service
+            </Link>{" "}
+            apply.
           </p>
         </div>
       </div>

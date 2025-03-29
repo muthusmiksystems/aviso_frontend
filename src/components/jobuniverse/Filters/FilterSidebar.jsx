@@ -66,7 +66,7 @@ const FilterSidebar = ({ jobdata }) => {
                 </button>
             </div>
 
-            <div className="bg-white p-4 rounded-lg h-screen overflow-y-scroll">
+            <div className="bg-white p-4 rounded-lg overflow-y-auto">
                 {/* Sort By */}
                 <div className="py-2">
                     <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection("sortBy")}>
@@ -95,7 +95,7 @@ const FilterSidebar = ({ jobdata }) => {
                     </div>
                     {openSections.jobType && (
                         <div className="mt-2">
-                            {jobTitles.map((title) => (
+                            {['All',...jobTitles].map((title) => (
                                 <FilterCheckbox
                                     key={title}
                                     label={title}
@@ -115,7 +115,7 @@ const FilterSidebar = ({ jobdata }) => {
                     </div>
                     {openSections.extraFilter && (
                         <div className="mt-2">
-                            {["Option 1", "Option 2", "Option 3", "Option 4"].map((option) => (
+                            {["All","Option 1", "Option 2", "Option 3", "Option 4"].map((option) => (
                                 <FilterCheckbox
                                     key={option}
                                     label={option}

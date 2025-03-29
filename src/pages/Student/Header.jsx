@@ -4,7 +4,6 @@ import { FaBell } from "react-icons/fa";
 const Header = () => {
   return (
     <div className="flex justify-between items-center p-4 bg-white shadow-sm">
-      {/* Welcome Text */}
       <div>
         <h1 className="text-xl font-semibold text-gray-900">
           Hello, <span className="font-bold">User</span>
@@ -12,7 +11,6 @@ const Header = () => {
         <p className="text-sm text-gray-500">Welcome to Aviso</p>
       </div>
 
-      {/* Notification Bell */}
       <div className="relative">
         <FaBell className="text-gray-400 text-xl" />
         <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">

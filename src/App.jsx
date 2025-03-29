@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Topbar from "./components/common/Topbar/Topbar";
 import Navbar from "./components/common/Navbar";
 import ProtectedRoute from "./utils/ProtectedRoute";
@@ -17,15 +17,24 @@ const Faq = React.lazy(() => import("./pages/faq"));
 const Payment = React.lazy(() => import("./pages/payments"));
 const StaticPages = React.lazy(() => import("./pages/static"));
 const MultiStepForm = React.lazy(() => import("./components/Registration/RegisterForm"));
-
 const Student = React.lazy(() => import("./pages/Student"));
-function App() {
+
+function AppContent() {
+  const location = useLocation();
+
+  const isProtectedRoute = location.pathname.startsWith("/student-dashboard");
+
+  console.log("Current Path:", location.pathname);
+  console.log("Show Navbar:", !isProtectedRoute);
+
   return (
-    <Router>
-      <Topbar />
-      <div className="mt-8 sm:mt-13">
-      <Navbar />
-      </div>
+    <>
+      {!isProtectedRoute && <Topbar />}
+      {!isProtectedRoute && (
+        <div className="mt-14 sm:mt-13">
+          <Navbar />
+        </div>
+      )}
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -34,21 +43,30 @@ function App() {
           <Route path="/job-description" element={<JobDescription />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/pricing" element={<Payment />} />
-          <Route path="/static" element={<StaticPages />} />
+          <Route path="/terms-condition" element={<StaticPages />} />
           <Route path="/multistep-form" element={<MultiStepForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/multistep-form" element={<MultiStepForm />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<MultiStepForm />} />
-            <Route path="/student-dashboard" element={<Student />} />
+            <Route path="/student-dashboard/*" element={<Student />} />
           </Route>
         </Routes>
       </Suspense>
-      <Footer/>
+      <Footer />
       <ToastMessage />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
 
 export default App;
+
+
