@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import Footer from "../../components/common/Footer";
+import ProfileDashboard from "./ProfileDashboard";
+import { Route, Routes } from "react-router-dom";
+import MyCourse from "./maincomponents/MyCourse";
 const StudentDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -10,20 +12,25 @@ const StudentDashboard = () => {
   };
 
   return (
-    <div className="flex h-screen">
-      {/* Sidebar */}
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    <div className="flex font-[OmnesArabic]">
+      <div className="w-[250px]  ">
+        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      </div>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Header */}
+      <div className="w-[890px] px-8">
         <Header />
+          <Routes>
+            {/* <Route path="/overview" element={<Overview />} /> */}
+            <Route path="/my-course" element={<MyCourse />} />
+            {/* <Route path="/community" element={<Community />} />
+              <Route path="/messages" element={<Messages />} />
+              <Route path="/report" element={<Report />} />
+              <Route path="/settings" element={<AccountSettings />} /> */}
+          </Routes>
+      </div>
 
-        {/* Main Content Area */}
-        <main className="flex-1 p-6 bg-">
-          <h2 className="text-2xl font-bold mb-4">Welcome to the Dashboard</h2>
-          <p>Your main content goes here.</p>
-        </main>
+      <div className="w-[302px]">
+        <ProfileDashboard />
       </div>
     </div>
   );

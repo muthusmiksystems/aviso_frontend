@@ -14,7 +14,7 @@ import Images from "../../assets/images/Image";
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
-  const [activeItem, setActiveItem] = useState("My Course"); // Default active menu
+  const [activeItem, setActiveItem] = useState("/student-dashboard/my-course"); // Default active menu
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   const menuItems = [
     { id: 1, label: "Overview", icon: <FaThLarge />, link: "#overview" },
-    { id: 2, label: "My Course", icon: <FaBookOpen />, link: "#my-course" },
+    { id: 2, label: "My Course", icon: <FaBookOpen />, link: "/student-dashboard/my-course" },
     { id: 3, label: "Community", icon: <FaUsers />, link: "#community" },
     {
       id: 4,
@@ -37,10 +37,10 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="relative">
+    <div className="">
       {/* Toggle Button */}
       <button
-        className="fixed top-4 left-4 z-30 p-2 bg-blue-600 text-white rounded-md md:hidden"
+        className="fixed top-10 left-4 z-30 p-2 bg-blue-600 text-white rounded-md md:hidden"
         onClick={toggleSidebar}
       >
         {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -57,7 +57,7 @@ const Sidebar = () => {
           <div className="flex items-center justify-center mb-6">
             <img src={Images.Logoo} alt="Logo" className="h-10 w-auto" />
           </div>
-
+        <div>
           {/* Navigation Menu */}
           <nav className="space-y-4">
             {menuItems.map((item) => (
@@ -95,6 +95,7 @@ const Sidebar = () => {
             <button className="mt-4 w-full bg-blue-300 text-white font-semibold py-2 rounded-lg hover:bg-blue-100">
               Upgrade Now
             </button>
+          </div>
           </div>
         </div>
       </div>

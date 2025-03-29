@@ -3,12 +3,12 @@ import { Img } from "../../components/common/Img";
 
 const Clients = () => (
   <footer className="bg-[#ffff] py-8  mx-auto font-[OmnesArabic]">
-    <div className="text-center w-auto  max-w-4xl mx-auto">
+    <div className="text-center w-auto  max-w-[950px] mx-auto">
       <p className="text-[#000000] text-[20px] md:text-xl font-semibold">
         TRUSTED BY THE WORLD'S{" "}
         <span className="text-[#24A1DD]">BIGGEST EDUCATIONAL INSTITUTES</span>
       </p>
-      <div className="flex justify-between mt-6 px-8 md:px-6 place-items-center xl:gap-10 gap-6 overflow-x-auto overflow-x-scroll lg:overflow-x-hidden ">
+      <div className="flex justify-between mt-6  place-items-center  overflow-x-auto overflow-x-scroll lg:overflow-x-hidden ">
         <Img
           src={Images.Client1}
           alt="Client 1"

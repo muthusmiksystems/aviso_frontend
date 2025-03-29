@@ -28,10 +28,12 @@ const LearningJourney = () => {
     <div className="max-w-7xl mx-auto px-6  py-12   font-[OmnesArabic]">
       <div className="mt-4">
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-6 sm:mb-10">
-          Embark on a Journey of
-          <br className="hidden sm:block" /> Continuous Learning
-        </h2>
+        <div className="w-full">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-6 sm:mb-10 w-1/2 mx-auto leading-tight">
+            Embark on a Journey of {/* <br className="hidden sm:block " /> */}
+            <span className=" mt-10">Continuous Learning</span>
+          </h2>
+        </div>
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -59,12 +61,13 @@ const LearningJourney = () => {
                 <p className="text-[#425466] text-md sm:text-md mb-4">
                   {article.content}
                 </p>
-                <a
+
+                <button
                   href="#"
-                  className="text-transparent bg-clip-text bg-gradient-to-b from-[#FF3EEA] to-[#99258C] text-md sm:text-lg font-medium"
+                  className="text-transparent bg-clip-text bg-gradient-to-b from-[#FF3EEA] to-[#99258C] text-md sm:text-lg font-medium transition  ease-in-out hover:translate-x-1 hover:scale-110 hover:border-b hover:border-[#606060]"
                 >
                   Read now
-                </a>
+                </button>
               </div>
             </div>
           ))}

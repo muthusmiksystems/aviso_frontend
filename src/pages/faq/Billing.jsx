@@ -46,7 +46,14 @@ export default function FaqSection() {
           <h2 className="text-5xl font-bold mb-6 text-[#131313]">Billing</h2>
           <div className="space-y-2">
             {faqData.map((faq, index) => (
-              <div key={index} className="border-b-2 border-[#D7D7D7] pb-2">
+              <div
+                key={index}
+                className={`pb-2 ${
+                  index === faqData.length - 1
+                    ? ""
+                    : "border-b-2 border-[#D7D7D7]"
+                }`}
+              >
                 <button
                   className={`flex justify-between items-center w-full py-4 text-left focus:outline-none ${
                     openIndex === index ? "text-[#29ABE2]" : "text-black"

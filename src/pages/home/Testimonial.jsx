@@ -75,12 +75,11 @@ export default function Testimonials() {
       </div>
 
       {/* Right Section - Testimonial Content */}
-      <div className="bg-white w-full mx-auto md:mx-0 md:w-2/3 p-6 md:p-10 flex flex-col justify-between md:ps-20 min-h-[50vh] md:min-h-screen">
-        <h1 className="text-2xl md:text-4xl lg:text-5xl text-[#57B3D3] font-semibold text-center md:text-end mb-4 md:mb-6 w-[90%]  md:ml-16">
-          These testimonials reflect the impact our platform has had
-        </h1>
-
+      <div className="bg-white w-full mx-auto md:mx-0 md:w-2/3 p-6 md:pt-10 lg:pt-0 md:p-10  flex flex-col justify-between md:ps-20 min-h-[50vh] md:min-h-[110vh] ">
         <div className="relative text-center md:ps-16">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl text-[#57B3D3] font-semibold text-center md:text-end mb-4 md:mb-6 w-[90%]  md:ml-16 leading-tight">
+            These testimonials reflect the impact our platform has had
+          </h1>
           {/* Left Quote Mark */}
           <div className="absolute  text-7xl md:text-8xl lg:text-9xl font-bold text-transparent bg-gradient-to-b from-[#29ABE2]  to-[#00FFFF] !font-sans bg-clip-text ">
             &rdquo;
@@ -89,54 +88,52 @@ export default function Testimonials() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2 text-start">
               {testimonials[currentIndex].title}
             </h1>
-            <p className="text-[#808080] text-md md:text-md font-semibold leading-relaxed w-full md:w-3/3 lg:w-3/3 text-start my-4 md:my-8">
+            <p className="text-[#808080] text-md md:text-[18px] font-semibold leading-relaxed w-full md:w-3/3 lg:w-3/3 text-start my-4 md:my-8">
               {testimonials[currentIndex].quote}
             </p>
           </div>
-          <div className="absolute -bottom-12 -right-4 text-7xl md:text-8xl lg:text-9xl  font-bold text-transparent bg-gradient-to-t to-[#29ABE2]  from-[#00FFFF] bg-clip-text !font-sans">
+          <div className="absolute -bottom-10 -right-4 text-7xl md:text-8xl lg:text-9xl  font-bold text-transparent bg-gradient-to-t to-[#29ABE2]  from-[#00FFFF] bg-clip-text !font-sans">
             &rdquo;
           </div>
-        </div>
-
-        {/* Navigation Controls */}
-        <div className="flex justify-center md:justify-start items-center gap-4 mt-6">
-          <button
-            onClick={() => {
-              handlePrev();
-              setActiveButton("left");
-            }}
-            className={`p-3 rounded-full transition-all ${
-              activeButton === "left"
-                ? "bg-gradient-to-r from-[#29ABE2] via-[#29ABE2] to-[#00FFFF] text-white"
-                : "hover:bg-gray-100 text-gray-500"
-            }`}
-            aria-label="Previous testimonial"
-          >
-            <GoArrowLeft
-              className={`w-5 h-5  ${
-                activeButton === "left" ? "text-white" : "text-[#A3A3A3]"
+          <div className="flex justify-center md:justify-start items-center gap-4 mt-6 ">
+            <button
+              onClick={() => {
+                handlePrev();
+                setActiveButton("left");
+              }}
+              className={`p-3 rounded-full transition-all ${
+                activeButton === "left"
+                  ? "bg-gradient-to-r from-[#29ABE2] via-[#29ABE2] to-[#00FFFF] text-white"
+                  : "hover:bg-gray-100 text-gray-500"
               }`}
-            />
-          </button>
+              aria-label="Previous testimonial"
+            >
+              <GoArrowLeft
+                className={`w-5 h-5  ${
+                  activeButton === "left" ? "text-white" : "text-[#A3A3A3]"
+                }`}
+              />
+            </button>
 
-          <button
-            onClick={() => {
-              handleNext();
-              setActiveButton("right");
-            }}
-            className={`p-3 rounded-full transition-all ${
-              activeButton === "right"
-                ? "bg-gradient-to-r from-[#29ABE2] via-[#29ABE2] to-[#00FFFF] text-white"
-                : "hover:bg-gray-100 text-gray-500"
-            }`}
-            aria-label="Next testimonial"
-          >
-            <GoArrowRight
-              className={`w-5 h-5  ${
-                activeButton === "right" ? "text-white" : "text-[#A3A3A3]"
+            <button
+              onClick={() => {
+                handleNext();
+                setActiveButton("right");
+              }}
+              className={`p-3 rounded-full transition-all ${
+                activeButton === "right"
+                  ? "bg-gradient-to-r from-[#29ABE2] via-[#29ABE2] to-[#00FFFF] text-white"
+                  : "hover:bg-gray-100 text-gray-500"
               }`}
-            />
-          </button>
+              aria-label="Next testimonial"
+            >
+              <GoArrowRight
+                className={`w-5 h-5  ${
+                  activeButton === "right" ? "text-white" : "text-[#A3A3A3]"
+                }`}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
